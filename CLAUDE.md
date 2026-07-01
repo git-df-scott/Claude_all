@@ -47,3 +47,14 @@ agent can carry.
   different branch without explicit permission.
 - Keep this file up to date: when new standing instructions come up in
   conversation, add them here so they survive across sessions.
+
+## 4. Project: Civilization VIII (repo `git-df-scott/Civ-8`)
+
+- The complete project plan lives in the Civ-8 repo under `docs/plan/`
+  (00 master plan → 06 quality), on branch `claude/civ8-game-plan-uma0ww`.
+- **Implementation is gated on the owner's explicit green light.** Do not
+  write game code until it is given. On green light, start at Milestone M0
+  exactly as specified in `docs/plan/05-roadmap.md`.
+- Follow the plan's locked decisions (deterministic pure-TS engine, PixiJS +
+  React, pnpm monorepo, data-driven content); deviations require updating the
+  plan docs in the same change.
