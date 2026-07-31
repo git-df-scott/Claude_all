@@ -48,7 +48,8 @@ the whole 730k→4M sweep: ~1–5%. That is the honest number.
 | 1,000,000–1,500,000 | concentrated | 3,523 | 0 |
 | 1,500,000–2,000,000 | concentrated | 5,129 | 0 |
 | 2,000,000–2,500,000 | concentrated | 7,222 | 0 |
-| 2,500,000–3,200,000 | concentrated | RUNNING at handoff time — see §4 |
+| 2,500,000–3,200,000 | concentrated | 12,443 | 0 |
+| 3,200,000–4,000,000 | concentrated | RUNNING at last update — see §4 |
 
 ## 3. The code (all in euler6/, all committed)
 
