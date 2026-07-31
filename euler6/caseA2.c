@@ -196,9 +196,10 @@ int main(int argc,char **argv){
     P6=malloc(sizeof(u128)*(Bmax+1));
     for(u64 x=0;x<=Bmax;x++) P6[x]=ipow6(x);
 
-    /* blocked Bloom: ~16 bits per pair, 512-bit lines */
+    /* blocked Bloom: ~16 bits per pair (argv[3] overrides), 512-bit lines */
+    u64 bpp = (argc>3)? strtoull(argv[3],0,10) : 16;
     u64 npairs=Bmax*(Bmax+1)/2;
-    nlines=1; while(nlines*512 < npairs*16) nlines<<=1;
+    nlines=1; while(nlines*512 < npairs*bpp) nlines<<=1;
     bloom=calloc(nlines*64,1);
     if(!bloom){ fprintf(stderr,"bloom alloc failed (%llu bytes)\n",(unsigned long long)(nlines*64)); return 1; }
     fprintf(stderr,"building bloom: Bmax=%llu pairs=%llu lines=%llu (%.1f GB)\n",
