@@ -111,8 +111,17 @@ solutions), consistent with the literature.
 ## Results
 
 - `search.c`, sixth powers, f ≤ 5,000: no solutions (consistency check).
-- `caseA2.c`, concentrated case, f in [700,000 .. 3,200,000]: see
-  `sweep.log` in this directory / the PR description for the final tally.
+- `caseA2.c`, concentrated case (running tally; see HANDOFF.md for the
+  authoritative table):
+
+| f range | candidates | solutions |
+|---|---|---|
+| 700,000–730,000 | 124 | 0 (inside known bound — consistency) |
+| 730,000–1,000,000 | 1,314 | 0 |
+| 1,000,000–1,500,000 | 3,523 | 0 |
+| 1,500,000–2,000,000 | 5,129 | 0 |
+| 2,000,000–2,500,000 | 7,222 | 0 |
+| 2,500,000–3,200,000 | in progress | — |
 
 ## Where a real breakthrough would have to come from
 
