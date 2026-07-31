@@ -1,49 +1,23 @@
 # CLAUDE.md
 
-> **NOTE:** This is version 2 — a reconstructed stand-in for the original .MD file,
-> which is temporarily unavailable (it lives on a local machine in Calgary).
-> Use this file as the active instructions until the original is restored.
-> When the original is recovered, compare the two and merge anything missing.
+## Purpose
 
-## 1. Skills — always use them (non-negotiable)
+This repo holds personal Claude Code configuration used from mobile/web
+sessions (Claude Code on the web). It is intentionally separate from the
+local Claude config on the main machine — nothing here should assume or
+depend on that machine's setup. There's no app code here, just config.
 
-Before starting **any** task, check the available skills and invoke every one that
-matches the work. Do not do a task inline when a skill exists for it.
+## Working notes
 
-Big notes:
-
-- **Always scan the skills list first.** If a skill matches the request — even
-  partially — invoke it before writing any other response about the task.
-- **Code changes:** run `verify` before committing nontrivial changes, and
-  `code-review` on the diff. Use `simplify` to clean up changed code.
-- **Reviews:** use `review` for GitHub pull requests, `security-review` for
-  security-sensitive changes on the current branch.
-- **New projects/repos:** use `init` to generate codebase documentation.
-- **Running the app:** use `run` when launching or screenshotting the project.
-- **Anything LLM/Claude-API related:** read `claude-api` before answering — never
-  answer model/pricing/API questions from memory.
-- **Charts and visualization:** read `dataviz` before writing any chart code.
-- **Recurring tasks:** use `loop`; **harness/settings changes:** use `update-config`.
-
-If a skill exists and wasn't used, that is a mistake — go back and use it.
-
-## 2. Agents — use them no matter what (non-negotiable)
-
-Delegating to agents is mandatory, not optional. Do not keep work inline that an
-agent can carry.
-
-- **Use agents for every task where they are available** — research, codebase
-  search, planning, multi-step implementation. This is non-negotiable.
-- **Explore agent:** any broad codebase search or fan-out across many files.
-- **Plan agent:** designing the implementation strategy before nontrivial changes.
-- **general-purpose agent:** complex research and multi-step task execution.
-- Continue an existing agent with its context (SendMessage) rather than
-  re-spawning cold when following up on the same thread of work.
-- If in doubt whether a task warrants an agent: it does. Spawn it.
-
-## 3. General working notes
-
-- Commit and push work to the designated feature branch; never push to a
+- Develop on a `claude/*` feature branch and push there; never push to a
   different branch without explicit permission.
-- Keep this file up to date: when new standing instructions come up in
-  conversation, add them here so they survive across sessions.
+- Prefer small, direct changes — this repo is config, not a product
+  codebase, so keep additions (settings, skills, hooks) minimal and easy
+  to reason about from a phone.
+- `.claude/settings.json` carries a small read-only permission allowlist
+  (git status/diff/log/show/branch/remote, ls, pwd, Read/Glob/Grep) to
+  cut down on permission prompts during mobile sessions. Expand it
+  deliberately, not by default — nothing destructive or network-facing
+  should be auto-approved.
+- When a new standing preference or instruction comes up in conversation,
+  add it here so it survives across sessions.
