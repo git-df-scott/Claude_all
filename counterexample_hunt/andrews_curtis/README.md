@@ -67,7 +67,7 @@ each one three ways:
 - **OPEN** — neither. Per Havas–Ramsay the only such case presenting the
   trivial group at total length ≤ 13 should be AK(3).
 
-Results (`validation_results.json`, `validation_len13.log`):
+Results (`validation_len<N>.log`, `validation_results_len<N>.json`):
 
 | Total length | AC-classes | Trivialized | Proven nontrivial | Open |
 |---|---|---|---|---|
