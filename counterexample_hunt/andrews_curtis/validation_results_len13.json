@@ -1,0 +1,147 @@
+{
+  "max_total_length": 13,
+  "classes": 3480,
+  "trivialized": 3472,
+  "proven_nontrivial": 6,
+  "open": [
+    [
+      "xxyXYY",
+      "xxxYYXy"
+    ],
+    [
+      "xyxYXY",
+      "xxxxYYY"
+    ]
+  ],
+  "nontrivial_certificates": [
+    {
+      "r1": "xxyXy",
+      "r2": "xyyyyxY",
+      "n": 5,
+      "x_image": [
+        0,
+        1,
+        3,
+        4,
+        2
+      ],
+      "y_image": [
+        2,
+        3,
+        1,
+        4,
+        0
+      ]
+    },
+    {
+      "r1": "xxyXy",
+      "r2": "xxxyyyyy",
+      "n": 5,
+      "x_image": [
+        0,
+        1,
+        3,
+        4,
+        2
+      ],
+      "y_image": [
+        2,
+        3,
+        1,
+        4,
+        0
+      ]
+    },
+    {
+      "r1": "xxyXy",
+      "r2": "xyXYYYXy",
+      "n": 5,
+      "x_image": [
+        0,
+        1,
+        3,
+        4,
+        2
+      ],
+      "y_image": [
+        2,
+        3,
+        1,
+        4,
+        0
+      ]
+    },
+    {
+      "r1": "xyxyxY",
+      "r2": "xxxxxyy",
+      "n": 5,
+      "x_image": [
+        1,
+        2,
+        3,
+        4,
+        0
+      ],
+      "y_image": [
+        0,
+        2,
+        1,
+        4,
+        3
+      ]
+    },
+    {
+      "r1": "xyxYXY",
+      "r2": "xxxYXXY",
+      "n": 5,
+      "x_image": [
+        1,
+        2,
+        3,
+        4,
+        0
+      ],
+      "y_image": [
+        2,
+        0,
+        4,
+        1,
+        3
+      ]
+    },
+    {
+      "r1": "xyxYXY",
+      "r2": "xxYXyXY",
+      "n": 5,
+      "x_image": [
+        1,
+        2,
+        3,
+        4,
+        0
+      ],
+      "y_image": [
+        2,
+        0,
+        4,
+        1,
+        3
+      ]
+    }
+  ],
+  "ak3_canonical": [
+    "xyxYXY",
+    "xxxxYYY"
+  ],
+  "longest_trivialization_moves": 109,
+  "attempts": [
+    [
+      14,
+      3000000
+    ],
+    [
+      17,
+      20000000
+    ]
+  ]
+}

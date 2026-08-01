@@ -1,0 +1,23 @@
+19 open classes from validation_results_len14.json; cap=14 budget=60000000
+
+  quotient xxyXYY           xxxYYXy          no_small_quotient
+  quotient xxxxyXy          xyyyxYY          no_small_quotient
+  quotient xxxxyyy          xyxyyxY          no_small_quotient
+  quotient xxxyXXy          xyyXYYY          no_small_quotient
+  quotient xxxyXXY          xyyXYYY          no_small_quotient
+  quotient xxxyXyy          xyxyyXY          no_small_quotient
+  quotient xxxyXYY          xyyXYxY          no_small_quotient
+  quotient xxyxxYY          xyXYYXy          no_small_quotient
+  quotient xxyxyXY          xxYYXyy          no_small_quotient
+  quotient xxyxYXY          xyXyxYY          no_small_quotient
+  quotient xxyxYXY          xyXyXYY          no_small_quotient
+  quotient xxyXXYY          xyxYYXy          no_small_quotient
+  quotient xxyXy            xyyyXYYYY        no_small_quotient
+  quotient xxyXy            xyyyyyxYY        no_small_quotient
+  quotient xxyXy            xyyyyyyxY        no_small_quotient
+  quotient xxyXyXY          xyxyXYY          no_small_quotient
+  quotient xxyXyXY          xyXYYXy          no_small_quotient
+  quotient xxyXYXy          xyXyxYY          no_small_quotient
+
+18 survive the quotient test; running AK(3) path search (cap=14) on each
+

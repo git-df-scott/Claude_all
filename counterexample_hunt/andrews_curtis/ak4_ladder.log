@@ -1,0 +1,4 @@
+cap 13: EXHAUSTED (rigorous: no path within cap): no trivialization. expanded=101475328 stored=101475328 best_total_length=15
+cap 14: TRUNCATED (state budget hit — inconclusive): no trivialization. expanded=45685924 stored=120000000 best_total_length=15
+cap 15: TRUNCATED (state budget hit — inconclusive): no trivialization. expanded=39133271 stored=120000000 best_total_length=15
+cap 16: 

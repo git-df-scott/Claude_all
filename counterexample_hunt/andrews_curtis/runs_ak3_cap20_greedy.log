@@ -1,0 +1,3 @@
+  ... expanded 16M states, stored 131M, frontier len 20
+input: r1=xxxYYYY r2=xyxYXY  cap=20  max-states=150000000  abelianization det=1 (trivial H1, ok)
+TRUNCATED (state budget hit — inconclusive): no trivialization. expanded=18181976 stored=150000000 best_total_length=13 cap=20

@@ -1,0 +1,27 @@
+loaded 18 targets
+input: r1=xyxYXY r2=xxxxYYY  cap=12  max-states=150000000  abelianization det=1 (trivial H1, ok)
+TARGET IN COMPONENT: xxyXyXY xyXYYXy (stored=244795)
+TARGET IN COMPONENT: xxyxYXY xyXyXYY (stored=10660610)
+TARGET IN COMPONENT: xxyXyXY xyxyXYY (stored=12462642)
+TARGET IN COMPONENT: xxyXYY xxxYYXy (stored=13462691)
+TARGET IN COMPONENT: xxxyXYY xyyXYxY (stored=13507073)
+TARGET IN COMPONENT: xxyXy xyyyXYYYY (stored=21558144)
+  ... expanded 16M states, stored 41M, frontier len 21
+  ... expanded 32M states, stored 74M, frontier len 21
+  ... expanded 48M states, stored 87M, frontier len 23
+  ... expanded 64M states, stored 87M, frontier len 23
+  ... expanded 80M states, stored 88M, frontier len 23
+EXHAUSTED (rigorous: no path within cap): no trivialization. expanded=99344336 stored=99344336 best_total_length=13 cap=12
+targets in component: 6 of 18 (EXHAUSTED — absences are rigorous)
+  NOT in component: xxxxyXy xyyyxYY
+  NOT in component: xxxxyyy xyxyyxY
+  NOT in component: xxxyXXy xyyXYYY
+  NOT in component: xxxyXXY xyyXYYY
+  NOT in component: xxxyXyy xyxyyXY
+  NOT in component: xxyxxYY xyXYYXy
+  NOT in component: xxyxyXY xxYYXyy
+  NOT in component: xxyxYXY xyXyxYY
+  NOT in component: xxyXXYY xyxYYXy
+  NOT in component: xxyXy xyyyyyxYY
+  NOT in component: xxyXy xyyyyyyxY
+  NOT in component: xxyXYXy xyXyxYY

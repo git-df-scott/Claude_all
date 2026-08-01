@@ -1,0 +1,13 @@
+alpha = log2(3) in [158496250072115618145373894394781650875981440769248106045575265454109822779435476, 158496250072115618145373894394781650875981440769248106045575265454109822779436261] / 10^80  (interval width 785 ulp)
+continued fraction of log2(3): [1, 1, 1, 2, 2, 3, 1, 5, 2, 23, 2, 2, 1, 1, 55, 1, 4, 3, 1, 1, 15, 1, 9, 2, 5] ...  (60 terms)
+exact 2^p vs 3^q side check passed for all convergents with q <= 10^6
+
+verified frontier M = 2^71 (Barina 2025): any nontrivial cycle has
+  odd members  L >= 65,470,613,321
+  halvings     K >= 103,768,467,014
+  standard-map cycle length L + K >= 169,239,080,335
+
+verified frontier M = 2^68 (Barina 2020): any nontrivial cycle has
+  odd members  L >= 6,586,818,670
+  halvings     K >= 10,439,860,591
+  standard-map cycle length L + K >= 17,026,679,261

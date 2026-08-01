@@ -1,0 +1,23 @@
+{
+  "max_total_length": 9,
+  "classes": 90,
+  "trivialized": 90,
+  "proven_nontrivial": 0,
+  "open": [],
+  "nontrivial_certificates": [],
+  "ak3_canonical": [
+    "xyxYXY",
+    "xxxxYYY"
+  ],
+  "longest_trivialization_moves": 10,
+  "attempts": [
+    [
+      14,
+      3000000
+    ],
+    [
+      17,
+      20000000
+    ]
+  ]
+}

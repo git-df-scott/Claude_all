@@ -1,0 +1,4 @@
+verified convergence (drop below 2^71) for 100000000 odd numbers above 2^71
+max steps to drop below frontier: 623 (n = 2^71 + 192956411)
+max excursion: 2.01386e+29 (n = 2^71 + 195565615)
+no divergence, no cycle candidates found (as expected)
