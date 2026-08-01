@@ -38,6 +38,15 @@ gcc -O2 -o ac_search ac_search.c
 | AK(3), cap 12 | **EXHAUSTED — rigorously no trivialization with all relators ≤ 12 letters**; best total length reached: 13 (= start) | 99,344,336 stored = expanded | `runs_ak3_cap12_exhaustive.log` |
 | AK(3), cap 13 | Truncated at budget, no trivialization | 100M stored / 32.4M expanded | (numbers from run; deterministic) |
 | AK(3), cap 20 | Truncated at budget, no trivialization, best total length still 13 | 150M stored / 18.2M expanded | `runs_ak3_cap20_greedy.log` |
+| AK(4), cap 12 | **EXHAUSTED — rigorously no trivialization with all relators ≤ 12**; never got below its starting total length 15 | 5,399,784 stored = expanded | `runs_ak4_cap12.log` |
+
+AK(4) = ⟨x, y \| x⁴ = y⁵, xyx = yxy⟩ has total relator length 15, so it sits
+outside the length-≤14 census above. Todd–Coxeter confirms it presents the
+trivial group (index 1, peak 59 cosets), so it is a valid AC test case. Its
+cap-12 component is ~18× *smaller* than AK(3)'s (5.4M vs 99.3M states) —
+its 9-letter relator means products blow past the cap quickly — so exhaustion
+can be pushed to considerably higher caps than AK(3) permits. `ak4_ladder.sh`
+climbs cap 13→17; results in `ak4_ladder.log`.
 
 Context: AK(2) is known AC-trivializable (Miasnikov, *IJAC* 1999). AK(3) is
 the unique minimal potential counterexample — every balanced 2-generator
