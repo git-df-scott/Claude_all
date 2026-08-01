@@ -96,6 +96,15 @@ xxxyXyy  xyxyyXY    TRIVIAL: index 1        xxyXy    xyyyyyyxY  INCONCLUSIVE
 xxyxxYY  xyXYYXy    TRIVIAL: index 1        xxyXYXy  xyXyxYY    TRIVIAL: index 1
 ```
 
+An independent Todd–Coxeter run over all 18 open classes (`todd_coxeter_len14.json`)
+agrees with the above on every overlapping case and resolves the rest: **17 of
+the 18 are `TRIVIAL: index 1`**, with the same single inconclusive case.
+
+**Adversarial pass** (`deep_attack.sh`, `deep_attack_len14.log`): each of the
+12 was then re-attacked far harder than the sweep — cap 24 (vs 17) and 40M
+states — explicitly to kill them. **All 12 survived; zero were trivialized.**
+Every result is TRUNCATED, i.e. "no trivialization found," not "none exists."
+
 So these 11 are *bona fide* Andrews–Curtis test cases: balanced presentations
 that provably define the trivial group, that our search did not trivialize,
 and that are not AK(3)-reducible within cap 12. **They are candidates, not

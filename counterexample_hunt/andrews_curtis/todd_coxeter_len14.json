@@ -1,0 +1,200 @@
+[
+  {
+    "r1": "xxxxyXy",
+    "r2": "xyyyxYY",
+    "status": "TRIVIAL",
+    "index": 1,
+    "peak_cosets": 173,
+    "coincidences": 172,
+    "seconds": 0.001,
+    "max_cosets": 2000000,
+    "checks": "verify=PASS; abelian=PASS(ab: |G^ab| = 1 divides 1)"
+  },
+  {
+    "r1": "xxxxyyy",
+    "r2": "xyxyyxY",
+    "status": "TRIVIAL",
+    "index": 1,
+    "peak_cosets": 155,
+    "coincidences": 154,
+    "seconds": 0.001,
+    "max_cosets": 2000000,
+    "checks": "verify=PASS; abelian=PASS(ab: |G^ab| = 1 divides 1)"
+  },
+  {
+    "r1": "xxxyXXy",
+    "r2": "xyyXYYY",
+    "status": "TRIVIAL",
+    "index": 1,
+    "peak_cosets": 199,
+    "coincidences": 198,
+    "seconds": 0.001,
+    "max_cosets": 2000000,
+    "checks": "verify=PASS; abelian=PASS(ab: |G^ab| = 1 divides 1)"
+  },
+  {
+    "r1": "xxxyXXY",
+    "r2": "xyyXYYY",
+    "status": "TRIVIAL",
+    "index": 1,
+    "peak_cosets": 102,
+    "coincidences": 101,
+    "seconds": 0.0,
+    "max_cosets": 2000000,
+    "checks": "verify=PASS; abelian=PASS(ab: |G^ab| = 1 divides 1)"
+  },
+  {
+    "r1": "xxxyXyy",
+    "r2": "xyxyyXY",
+    "status": "TRIVIAL",
+    "index": 1,
+    "peak_cosets": 198,
+    "coincidences": 197,
+    "seconds": 0.001,
+    "max_cosets": 2000000,
+    "checks": "verify=PASS; abelian=PASS(ab: |G^ab| = 1 divides 1)"
+  },
+  {
+    "r1": "xxxyXYY",
+    "r2": "xyyXYxY",
+    "status": "TRIVIAL",
+    "index": 1,
+    "peak_cosets": 64,
+    "coincidences": 63,
+    "seconds": 0.0,
+    "max_cosets": 2000000,
+    "checks": "verify=PASS; abelian=PASS(ab: |G^ab| = 1 divides 1)"
+  },
+  {
+    "r1": "xxyxxYY",
+    "r2": "xyXYYXy",
+    "status": "TRIVIAL",
+    "index": 1,
+    "peak_cosets": 200,
+    "coincidences": 199,
+    "seconds": 0.001,
+    "max_cosets": 2000000,
+    "checks": "verify=PASS; abelian=PASS(ab: |G^ab| = 1 divides 1)"
+  },
+  {
+    "r1": "xxyxyXY",
+    "r2": "xxYYXyy",
+    "status": "TRIVIAL",
+    "index": 1,
+    "peak_cosets": 138,
+    "coincidences": 137,
+    "seconds": 0.001,
+    "max_cosets": 2000000,
+    "checks": "verify=PASS; abelian=PASS(ab: |G^ab| = 1 divides 1)"
+  },
+  {
+    "r1": "xxyxYXY",
+    "r2": "xyXyxYY",
+    "status": "TRIVIAL",
+    "index": 1,
+    "peak_cosets": 54,
+    "coincidences": 53,
+    "seconds": 0.0,
+    "max_cosets": 2000000,
+    "checks": "verify=PASS; abelian=PASS(ab: |G^ab| = 1 divides 1)"
+  },
+  {
+    "r1": "xxyxYXY",
+    "r2": "xyXyXYY",
+    "status": "TRIVIAL",
+    "index": 1,
+    "peak_cosets": 77,
+    "coincidences": 76,
+    "seconds": 0.0,
+    "max_cosets": 2000000,
+    "checks": "verify=PASS; abelian=PASS(ab: |G^ab| = 1 divides 1)"
+  },
+  {
+    "r1": "xxyXXYY",
+    "r2": "xyxYYXy",
+    "status": "TRIVIAL",
+    "index": 1,
+    "peak_cosets": 178,
+    "coincidences": 177,
+    "seconds": 0.001,
+    "max_cosets": 2000000,
+    "checks": "verify=PASS; abelian=PASS(ab: |G^ab| = 1 divides 1)"
+  },
+  {
+    "r1": "xxyXy",
+    "r2": "xyyyXYYYY",
+    "status": "TRIVIAL",
+    "index": 1,
+    "peak_cosets": 52,
+    "coincidences": 51,
+    "seconds": 0.0,
+    "max_cosets": 2000000,
+    "checks": "verify=PASS; abelian=PASS(ab: |G^ab| = 1 divides 1)"
+  },
+  {
+    "r1": "xxyXy",
+    "r2": "xyyyyyxYY",
+    "status": "TRIVIAL",
+    "index": 1,
+    "peak_cosets": 133,
+    "coincidences": 132,
+    "seconds": 0.0,
+    "max_cosets": 2000000,
+    "checks": "verify=PASS; abelian=PASS(ab: |G^ab| = 1 divides 1)"
+  },
+  {
+    "r1": "xxyXy",
+    "r2": "xyyyyyyxY",
+    "status": "INCONCLUSIVE",
+    "index": null,
+    "peak_cosets": 2000000,
+    "coincidences": 283727,
+    "seconds": 3.959,
+    "max_cosets": 2000000,
+    "checks": "abelian=PASS(ab: |G^ab| = 1)"
+  },
+  {
+    "r1": "xxyXyXY",
+    "r2": "xyxyXYY",
+    "status": "TRIVIAL",
+    "index": 1,
+    "peak_cosets": 56,
+    "coincidences": 55,
+    "seconds": 0.002,
+    "max_cosets": 2000000,
+    "checks": "verify=PASS; abelian=PASS(ab: |G^ab| = 1 divides 1)"
+  },
+  {
+    "r1": "xxyXyXY",
+    "r2": "xyXYYXy",
+    "status": "TRIVIAL",
+    "index": 1,
+    "peak_cosets": 50,
+    "coincidences": 49,
+    "seconds": 0.0,
+    "max_cosets": 2000000,
+    "checks": "verify=PASS; abelian=PASS(ab: |G^ab| = 1 divides 1)"
+  },
+  {
+    "r1": "xxyXYXy",
+    "r2": "xyXyxYY",
+    "status": "TRIVIAL",
+    "index": 1,
+    "peak_cosets": 103,
+    "coincidences": 102,
+    "seconds": 0.0,
+    "max_cosets": 2000000,
+    "checks": "verify=PASS; abelian=PASS(ab: |G^ab| = 1 divides 1)"
+  },
+  {
+    "r1": "xxyXYY",
+    "r2": "xxxYYXy",
+    "status": "TRIVIAL",
+    "index": 1,
+    "peak_cosets": 104,
+    "coincidences": 103,
+    "seconds": 0.0,
+    "max_cosets": 2000000,
+    "checks": "verify=PASS; abelian=PASS(ab: |G^ab| = 1 divides 1)"
+  }
+]

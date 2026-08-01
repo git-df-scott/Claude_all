@@ -1,0 +1,2 @@
+input: r1=xxxxYYYYY r2=xyxYXY  cap=12  max-states=150000000  abelianization det=1 (trivial H1, ok)
+EXHAUSTED (rigorous: no path within cap): no trivialization. expanded=5399784 stored=5399784 best_total_length=15 cap=12
