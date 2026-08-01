@@ -1,2 +1,13 @@
 class 1: rep=xxxxyXy xyyyxYY  pool=197 -> captured 0 siblings (EXHAUSTED)
-class 2: rep=xxxxyyy xyxyyxY  pool=196 -> 
+class 2: rep=xxxxyyy xyxyyxY  pool=196 -> captured 34 siblings (EXHAUSTED)
+class 3: rep=xxxyXXy xyyXYYY  pool=161 -> captured 0 siblings (EXHAUSTED)
+class 4: rep=xxxyXXY xyyXYYY  pool=160 -> captured 2 siblings (EXHAUSTED)
+class 5: rep=xxxyXyy xyxyyXY  pool=157 -> captured 0 siblings (EXHAUSTED)
+class 6: rep=xxyxxYY xyXYYXy  pool=156 -> captured 0 siblings (EXHAUSTED)
+class 7: rep=xxyxyXY xxYYXyy  pool=155 -> captured 0 siblings (EXHAUSTED)
+class 8: rep=xxyXXYY xyxYYXy  pool=154 -> captured 0 siblings (EXHAUSTED)
+class 9: rep=xxxxyxy xyyyxYxY  pool=153 -> captured 0 siblings ()
+class 10: rep=xxxxyXy xxyyyXYY  pool=152 -> captured 0 siblings (EXHAUSTED)
+class 11: rep=xxxxyXy xyxyyXYY  pool=151 -> captured 0 siblings (EXHAUSTED)
+class 12: rep=xxxxyXy xyXYYxyy  pool=150 -> captured 0 siblings (EXHAUSTED)
+final unclassified: 149

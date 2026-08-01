@@ -67,6 +67,32 @@ AK(3) is now known *stably* AC-trivial (same line of work; also Lisitsa,
 arXiv:2501.18601), so it can only witness failure of the standard (unstable)
 conjecture.
 
+## Methodological correction: a lower cap can be a *stronger* search
+
+The validation sweep escalates cap 14 → cap 17 on failure, assuming a higher
+cap is a strictly stronger search. **That assumption is wrong.** While
+partitioning the length-15 candidates, one that the sweep had declared open
+turned out to trivialize easily at a *lower* cap:
+
+```
+$ ./ac_search xxxxyxy xyyyxYxY --cap 12 --max-states 40000000
+TRIVIALIZATION FOUND — 53 moves   (784,284 expansions, replay-verified)
+```
+
+A lower cap prunes the state space, so greedy shortest-total-length-first
+expansion penetrates much further along the paths that actually matter;
+raising the cap dilutes the frontier and can make the search weaker. Any
+"open" verdict from a single search profile is therefore unreliable, and the
+raw length-15 counts are contaminated by an unknown number of trivializable
+presentations. `recheck_cap12.sh` re-attacks a candidate list at cap 12 with a
+large budget; results in `recheck_len14_cap12.log`.
+
+For the length-14 shortlist this makes the conclusion *stronger*, not weaker:
+under the corrected profile those candidates come back **EXHAUSTED** rather
+than merely "not found", i.e. a rigorous proof that no cap-12 trivialization
+exists. The AK(3) and AK(4) results are unaffected — those were exhaustive
+from the start.
+
 ## Length-14 triage: which open classes are AK(3) in disguise?
 
 At total length ≤ 14 the sweep leaves 19 open classes (2 carried over from
