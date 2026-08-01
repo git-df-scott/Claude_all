@@ -1,0 +1,12 @@
+xxxxyXy    xyyyxYY      TRIVIAL: index 1
+xxxxyyy    xyxyyxY      TRIVIAL: index 1
+xxxyXXy    xyyXYYY      TRIVIAL: index 1
+xxxyXXY    xyyXYYY      TRIVIAL: index 1
+xxxyXyy    xyxyyXY      TRIVIAL: index 1
+xxyxxYY    xyXYYXy      TRIVIAL: index 1
+xxyxyXY    xxYYXyy      TRIVIAL: index 1
+xxyxYXY    xyXyxYY      TRIVIAL: index 1
+xxyXXYY    xyxYYXy      TRIVIAL: index 1
+xxyXy      xyyyyyxYY    TRIVIAL: index 1
+xxyXy      xyyyyyyxY    INCONCLUSIVE: exceeded 2000000 cosets
+xxyXYXy    xyXyxYY      TRIVIAL: index 1

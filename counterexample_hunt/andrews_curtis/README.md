@@ -79,6 +79,42 @@ Andrews–Curtis question entirely. Deciding that is what `todd_coxeter.py` is
 for: coset enumeration completing at index 1 *proves* a presentation defines
 the trivial group.
 
+Running it on the 12 (`tc_remaining12.log`): **11 are proven presentations of
+the trivial group**, 1 is inconclusive at a 2×10⁶ coset budget.
+
+```
+xxxxyXy  xyyyxYY    TRIVIAL: index 1        xxyxyXY  xxYYXyy    TRIVIAL: index 1
+xxxxyyy  xyxyyxY    TRIVIAL: index 1        xxyxYXY  xyXyxYY    TRIVIAL: index 1
+xxxyXXy  xyyXYYY    TRIVIAL: index 1        xxyXXYY  xyxYYXy    TRIVIAL: index 1
+xxxyXXY  xyyXYYY    TRIVIAL: index 1        xxyXy    xyyyyyxYY  TRIVIAL: index 1
+xxxyXyy  xyxyyXY    TRIVIAL: index 1        xxyXy    xyyyyyyxY  INCONCLUSIVE
+xxyxxYY  xyXYYXy    TRIVIAL: index 1        xxyXYXy  xyXyxYY    TRIVIAL: index 1
+```
+
+So these 11 are *bona fide* Andrews–Curtis test cases: balanced presentations
+that provably define the trivial group, that our search did not trivialize,
+and that are not AK(3)-reducible within cap 12. **They are candidates, not
+counterexamples** — either a deeper search may still trivialize them, or they
+may join AK(3)'s class through longer intermediates. Producing a vetted
+shortlist like this, rather than a disproof, is what a counterexample hunt at
+this frontier can actually deliver.
+
+### Todd–Coxeter validation
+
+`todd_coxeter.py` is HLT-style coset enumeration with union-find coincidence
+handling and a final closure-certification pass. Known-answer checks:
+
+| Presentation | Expected | Got |
+|---|---|---|
+| ⟨x,y \| x, y⟩ | trivial | `TRIVIAL: index 1` |
+| AK(2) | trivial | `TRIVIAL: index 1` |
+| AK(3) | trivial | `TRIVIAL: index 1` |
+| `xxyXy`, `xyyyyxY` | nontrivial | `FINITE: index 120` |
+
+The last row is an independent cross-check: our permutation search found an
+S₅ quotient for that presentation, and coset enumeration says the group has
+order exactly 120 = \|S₅\|. Two unrelated methods, same answer.
+
 ## Systematic validation against the published frontier
 
 `validate_frontier.py` tests the engine against the literature at scale rather
