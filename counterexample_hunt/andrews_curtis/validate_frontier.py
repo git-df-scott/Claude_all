@@ -200,6 +200,11 @@ def main():
     if max_total >= 13:
         assert ak3 in pres, "AK(3) missing from enumeration — enumeration is wrong"
         print(f"AK(3) present in enumeration as {to_str(ak3[0])} {to_str(ak3[1])}")
+    if max_total >= 15:
+        ak4 = canonical_pair(tuple(LETTERS.index(c) for c in "xxxxYYYYY"),
+                             tuple(LETTERS.index(c) for c in "xyxYXY"))
+        assert ak4 in pres, "AK(4) missing from enumeration — enumeration is wrong"
+        print(f"AK(4) present in enumeration as {to_str(ak4[0])} {to_str(ak4[1])}")
 
     with ThreadPoolExecutor(max_workers=4) as pool:
         results = list(pool.map(run_engine, pres))

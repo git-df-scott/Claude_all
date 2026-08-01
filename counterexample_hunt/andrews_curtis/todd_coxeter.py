@@ -643,7 +643,11 @@ def main(argv):
               file=sys.stderr)
         return 2
 
-    res = _enumerate(args, max_cosets)
+    try:
+        res = _enumerate(args, max_cosets)
+    except ValueError as exc:
+        print("error: %s" % exc, file=sys.stderr)
+        return 2
     if res["status"] == INCONCLUSIVE:
         print("INCONCLUSIVE: exceeded %d cosets" % max_cosets)
     elif res["status"] == TRIVIAL:
@@ -664,4 +668,8 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    sys.exit(main(sys.argv))
+    try:
+        rc = main(sys.argv)
+    except BrokenPipeError:
+        rc = 0
+    sys.exit(rc)
