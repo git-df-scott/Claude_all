@@ -1,0 +1,18 @@
+enumerating balanced presentations, total length <= 13 ...
+3480 distinct AC-classes with trivial abelianization
+AK(3) present in enumeration as xyxYXY xxxxYYY
+
+TRIVIALIZED: 3472   UNRESOLVED by search: 8
+of the unresolved: 6 proven NONTRIVIAL groups, 2 OPEN
+  nontrivial: xxyXy          xyyyyxY        via S_5, x->(0, 1, 3, 4, 2), y->(2, 3, 1, 4, 0)
+  nontrivial: xxyXy          xxxyyyyy       via S_5, x->(0, 1, 3, 4, 2), y->(2, 3, 1, 4, 0)
+  nontrivial: xxyXy          xyXYYYXy       via S_5, x->(0, 1, 3, 4, 2), y->(2, 3, 1, 4, 0)
+  nontrivial: xyxyxY         xxxxxyy        via S_5, x->(1, 2, 3, 4, 0), y->(0, 2, 1, 4, 3)
+  nontrivial: xyxYXY         xxxYXXY        via S_5, x->(1, 2, 3, 4, 0), y->(2, 0, 4, 1, 3)
+  nontrivial: xyxYXY         xxYXyXY        via S_5, x->(1, 2, 3, 4, 0), y->(2, 0, 4, 1, 3)
+
+OPEN cases (should be AK(3) and nontrivial groups without small quotients):
+  xxyXYY         xxxYYXy        total=13
+  xyxYXY         xxxxYYY        total=13  <-- AK(3)
+
+longest trivialization found: 109 moves

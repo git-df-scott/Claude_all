@@ -49,6 +49,58 @@ AK(3) is now known *stably* AC-trivial (same line of work; also Lisitsa,
 arXiv:2501.18601), so it can only witness failure of the standard (unstable)
 conjecture.
 
+## Systematic validation against the published frontier
+
+`validate_frontier.py` tests the engine against the literature at scale rather
+than on a single instance. It enumerates **every** balanced 2-generator
+presentation with total relator length ≤ N, up to AC-equivalence (relator
+rotation, inversion, swap, and the 8 signed permutations of the generators —
+every identification used is a genuine AC move, so coverage of AC-classes is
+complete), keeps those with trivial abelianization (|det| = 1), and resolves
+each one three ways:
+
+- **TRIVIALIZED** — the engine found and replay-verified an AC path to
+  ⟨x, y | x, y⟩. This *proves* the presentation defines the trivial group.
+- **NONTRIVIAL** — we exhibit generators in some Sₙ killing both relators with
+  nontrivial image, *proving* the group isn't trivial (so the theorem doesn't
+  apply to it).
+- **OPEN** — neither. Per Havas–Ramsay the only such case presenting the
+  trivial group at total length ≤ 13 should be AK(3).
+
+Results (`validation_results.json`, `validation_len13.log`):
+
+| Total length | AC-classes | Trivialized | Proven nontrivial | Open |
+|---|---|---|---|---|
+| ≤ 9 | 90 | 90 | 0 | 0 |
+| ≤ 11 | 530 | 530 | 0 | 0 |
+| ≤ 12 | 1121 | 1120 | 1 | **0** |
+| ≤ 13 | 3480 | 3472 | 6 | **2** |
+
+The length-≤12 row is a clean independent replication of Miasnikov (*IJAC*
+1999): **every** presentation in range either AC-trivializes or is provably
+not a presentation of the trivial group — no unexplained cases. Longest
+trivialization needed there: 40 moves; at length 13, 109 moves.
+
+The length-≤13 row independently reproduces Havas–Ramsay (*IJAC* 2003), whose
+theorem is that everything in range is AC-trivializable **or AC-equivalent to
+AK(3)**. Exactly two classes survive as OPEN, and one of them is AK(3):
+
+```
+xxyXYY   xxxYYXy   total=13
+xyxYXY   xxxxYYY   total=13   <-- AK(3)
+```
+
+Neither has a nontrivial quotient in any Sₙ for n ≤ 6 (`quotient_search.py`,
+`quotient_open2.log`, `quotient_ak3.log`), consistent with both presenting the
+trivial group. The second class is *not* a competing counterexample: the
+theorem predicts it is AC-equivalent to AK(3), and our enumeration only
+quotients by the obvious symmetries (rotation, inversion, swap, generator
+permutations), not by full AC-equivalence, so an AK(3) relative appearing as a
+separate class is expected. The decisive test needs no new code — if the two
+lie in the same cap-12 connected component, an exhaustive cap-12 run from
+either must enumerate the *identical* state count. See `runs_open2_cap12.log`
+against AK(3)'s 99,344,336.
+
 **The disproof gap, precisely:** a counterexample claim is the Π₁ statement
 "no finite AC sequence trivializes this presentation." Search can only remove
 candidates or fail; certification needs an invariant constant on AC-classes
