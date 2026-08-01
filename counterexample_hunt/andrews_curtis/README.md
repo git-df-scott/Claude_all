@@ -171,15 +171,25 @@ Results (`validation_len<N>.log`, `validation_results_len<N>.json`):
 | ≤ 14 | 7550 | 7522 | 9 | 19 (triaged below) |
 | ≤ 15 | 24571 | 24259 | 24 | 288 — **mostly a budget artifact, see below** |
 
-**The length-15 row does not mean 269 new candidates were found.** The sweep
-gives each class a fixed escalation (cap 14 / 3M states, then cap 17 / 20M),
-and that budget stops being adequate as presentations lengthen: the longest
-trivialization the engine actually completed grew 40 → 109 → 201 → **441
-moves** across lengths 12 → 13 → 14 → 15. So at length 15 "open" increasingly
-means "our search ran out", not "no trivialization exists". Treating the 288
-as candidates would badly overstate the result; the length-≤14 rows are the
-ones whose budget was comfortable enough to trust. AK(4) is among the open
-classes, as expected.
+The obvious worry about the length-15 row is that 288 is just the search
+budget failing as presentations lengthen — the longest trivialization the
+engine actually completed grows 40 → 109 → 201 → **441 moves** across lengths
+12 → 15, which looks like a search straining. **We tested that hypothesis and
+it is wrong.** Re-attacking a random 20 of the 269 new cases at cap 24 / 40M
+states — double the sweep's cap and states — trivialized **none of them**
+(`deep_attack_len15_sample.log`). Todd–Coxeter over all 288 then found **280
+proven presentations of the trivial group, 8 inconclusive, and zero nontrivial
+groups** (`tc_len15_open.json`, 34 s). So these are genuine AC test cases, not
+budget noise and not impostor groups.
+
+What *is* still unsettled about them is **distinctness**, not validity. The
+enumeration quotients only by the obvious symmetries, not by full
+AC-equivalence, so one AC-class can appear many times — at length 14, 6 of 19
+open classes collapsed into AK(3)'s single class once tested. 280 is therefore
+an upper bound on distinct candidates, likely a loose one; the collapse test
+(`ak3_component_len15.log`) runs all 280 as simultaneous targets against one
+exhaustive enumeration of AK(3)'s component. AK(4) is among the open classes,
+as expected.
 
 The length-≤12 row is a clean independent replication of Miasnikov (*IJAC*
 1999): **every** presentation in range either AC-trivializes or is provably

@@ -164,7 +164,7 @@ static const char *MOVE_NAMES[] = {
  * first test a bitmap of which (len1,len2) pairs any target uses; only the
  * rare length-matching insert does memcmp against the list.
  */
-#define MAX_TARGETS 256
+#define MAX_TARGETS 512
 static int parse_word(const char *s, Word *w);
 static uint8_t tgt_key[MAX_TARGETS][WBUF * 2];
 static int tgt_klen[MAX_TARGETS], tgt_found[MAX_TARGETS], n_targets;
