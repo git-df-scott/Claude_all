@@ -1,0 +1,123 @@
+[1/3] Exhaustive sweep of even n in [4, 100,000,000] ...
+  sweep: verified up to 4,194,309 (current max smallest-p = 751 at n = 3,807,404)
+  sweep: verified up to 8,388,613 (current max smallest-p = 751 at n = 3,807,404)
+  sweep: verified up to 12,582,917 (current max smallest-p = 829 at n = 10,759,922)
+  sweep: verified up to 16,777,221 (current max smallest-p = 829 at n = 10,759,922)
+  sweep: verified up to 20,971,525 (current max smallest-p = 829 at n = 10,759,922)
+  sweep: verified up to 25,165,829 (current max smallest-p = 929 at n = 24,106,882)
+  sweep: verified up to 29,360,133 (current max smallest-p = 997 at n = 27,789,878)
+  sweep: verified up to 33,554,437 (current max smallest-p = 997 at n = 27,789,878)
+  sweep: verified up to 37,748,741 (current max smallest-p = 997 at n = 27,789,878)
+  sweep: verified up to 41,943,045 (current max smallest-p = 1039 at n = 37,998,938)
+  sweep: verified up to 46,137,349 (current max smallest-p = 1039 at n = 37,998,938)
+  sweep: verified up to 50,331,653 (current max smallest-p = 1039 at n = 37,998,938)
+  sweep: verified up to 54,525,957 (current max smallest-p = 1039 at n = 37,998,938)
+  sweep: verified up to 58,720,261 (current max smallest-p = 1039 at n = 37,998,938)
+  sweep: verified up to 62,914,565 (current max smallest-p = 1093 at n = 60,119,912)
+  sweep: verified up to 67,108,869 (current max smallest-p = 1093 at n = 60,119,912)
+  sweep: verified up to 71,303,173 (current max smallest-p = 1093 at n = 60,119,912)
+  sweep: verified up to 75,497,477 (current max smallest-p = 1093 at n = 60,119,912)
+  sweep: verified up to 79,691,781 (current max smallest-p = 1093 at n = 60,119,912)
+  sweep: verified up to 83,886,085 (current max smallest-p = 1093 at n = 60,119,912)
+  sweep: verified up to 88,080,389 (current max smallest-p = 1093 at n = 60,119,912)
+  sweep: verified up to 92,274,693 (current max smallest-p = 1093 at n = 60,119,912)
+  sweep: verified up to 96,468,997 (current max smallest-p = 1093 at n = 60,119,912)
+  sweep: verified up to 100,000,000 (current max smallest-p = 1093 at n = 60,119,912)
+[2/3] 50 samples in [4e18, 1e19] (primality proven, deterministic MR) ...
+  frontier: n has 19 digits, smallest p = 13, r(n; p<1e4) = 34
+  frontier: n has 19 digits, smallest p = 149, r(n; p<1e4) = 105
+  frontier: n has 19 digits, smallest p = 3, r(n; p<1e4) = 48
+  frontier: n has 19 digits, smallest p = 7, r(n; p<1e4) = 37
+  frontier: n has 19 digits, smallest p = 211, r(n; p<1e4) = 67
+  frontier: n has 19 digits, smallest p = 107, r(n; p<1e4) = 37
+  frontier: n has 19 digits, smallest p = 7, r(n; p<1e4) = 37
+  frontier: n has 19 digits, smallest p = 23, r(n; p<1e4) = 39
+  frontier: n has 19 digits, smallest p = 31, r(n; p<1e4) = 57
+  frontier: n has 19 digits, smallest p = 29, r(n; p<1e4) = 75
+  frontier: n has 19 digits, smallest p = 17, r(n; p<1e4) = 35
+  frontier: n has 19 digits, smallest p = 107, r(n; p<1e4) = 35
+  frontier: n has 19 digits, smallest p = 73, r(n; p<1e4) = 71
+  frontier: n has 19 digits, smallest p = 13, r(n; p<1e4) = 70
+  frontier: n has 19 digits, smallest p = 647, r(n; p<1e4) = 45
+  frontier: n has 19 digits, smallest p = 17, r(n; p<1e4) = 37
+  frontier: n has 19 digits, smallest p = 241, r(n; p<1e4) = 57
+  frontier: n has 19 digits, smallest p = 73, r(n; p<1e4) = 36
+  frontier: n has 19 digits, smallest p = 79, r(n; p<1e4) = 41
+  frontier: n has 19 digits, smallest p = 17, r(n; p<1e4) = 115
+  frontier: n has 19 digits, smallest p = 5, r(n; p<1e4) = 44
+  frontier: n has 19 digits, smallest p = 37, r(n; p<1e4) = 53
+  frontier: n has 19 digits, smallest p = 61, r(n; p<1e4) = 51
+  frontier: n has 19 digits, smallest p = 79, r(n; p<1e4) = 44
+  frontier: n has 19 digits, smallest p = 19, r(n; p<1e4) = 44
+  frontier: n has 19 digits, smallest p = 67, r(n; p<1e4) = 45
+  frontier: n has 19 digits, smallest p = 19, r(n; p<1e4) = 79
+  frontier: n has 19 digits, smallest p = 241, r(n; p<1e4) = 35
+  frontier: n has 19 digits, smallest p = 47, r(n; p<1e4) = 61
+  frontier: n has 19 digits, smallest p = 127, r(n; p<1e4) = 53
+  frontier: n has 19 digits, smallest p = 41, r(n; p<1e4) = 39
+  frontier: n has 19 digits, smallest p = 11, r(n; p<1e4) = 92
+  frontier: n has 19 digits, smallest p = 139, r(n; p<1e4) = 51
+  frontier: n has 19 digits, smallest p = 3, r(n; p<1e4) = 46
+  frontier: n has 19 digits, smallest p = 37, r(n; p<1e4) = 57
+  frontier: n has 19 digits, smallest p = 17, r(n; p<1e4) = 39
+  frontier: n has 19 digits, smallest p = 197, r(n; p<1e4) = 42
+  frontier: n has 19 digits, smallest p = 79, r(n; p<1e4) = 28
+  frontier: n has 19 digits, smallest p = 79, r(n; p<1e4) = 71
+  frontier: n has 19 digits, smallest p = 5, r(n; p<1e4) = 50
+  frontier: n has 19 digits, smallest p = 43, r(n; p<1e4) = 41
+  frontier: n has 19 digits, smallest p = 3, r(n; p<1e4) = 36
+  frontier: n has 19 digits, smallest p = 61, r(n; p<1e4) = 41
+  frontier: n has 19 digits, smallest p = 11, r(n; p<1e4) = 49
+  frontier: n has 19 digits, smallest p = 29, r(n; p<1e4) = 100
+  frontier: n has 19 digits, smallest p = 37, r(n; p<1e4) = 118
+  frontier: n has 19 digits, smallest p = 113, r(n; p<1e4) = 44
+  frontier: n has 19 digits, smallest p = 449, r(n; p<1e4) = 37
+  frontier: n has 19 digits, smallest p = 29, r(n; p<1e4) = 43
+  frontier: n has 19 digits, smallest p = 31, r(n; p<1e4) = 47
+[3/3] 20 random 100-digit even samples (probable-prime only) ...
+  100-digit: n has 100 digits, smallest p = 1039, r(n; p<1e4) = 3
+  100-digit: n has 100 digits, smallest p = 659, r(n; p<1e4) = 7
+  100-digit: n has 100 digits, smallest p = 2087, r(n; p<1e4) = 11
+  100-digit: n has 100 digits, smallest p = 4651, r(n; p<1e4) = 6
+  100-digit: n has 100 digits, smallest p = 449, r(n; p<1e4) = 11
+  100-digit: n has 100 digits, smallest p = 157, r(n; p<1e4) = 23
+  100-digit: n has 100 digits, smallest p = 677, r(n; p<1e4) = 4
+  100-digit: n has 100 digits, smallest p = 293, r(n; p<1e4) = 11
+  100-digit: n has 100 digits, smallest p = 37, r(n; p<1e4) = 20
+  100-digit: n has 100 digits, smallest p = 797, r(n; p<1e4) = 6
+  100-digit: n has 100 digits, smallest p = 421, r(n; p<1e4) = 16
+  100-digit: n has 100 digits, smallest p = 23, r(n; p<1e4) = 10
+  100-digit: n has 100 digits, smallest p = 1543, r(n; p<1e4) = 6
+  100-digit: n has 100 digits, smallest p = 101, r(n; p<1e4) = 10
+  100-digit: n has 100 digits, smallest p = 233, r(n; p<1e4) = 6
+  100-digit: n has 100 digits, smallest p = 131, r(n; p<1e4) = 9
+  100-digit: n has 100 digits, smallest p = 331, r(n; p<1e4) = 6
+  100-digit: n has 100 digits, smallest p = 809, r(n; p<1e4) = 10
+  100-digit: n has 100 digits, smallest p = 1433, r(n; p<1e4) = 8
+  100-digit: n has 100 digits, smallest p = 233, r(n; p<1e4) = 11
+
+== Goldbach module summary ==
+Exhaustive sweep: every even n in [4, 100,000,000] has a prime
+  decomposition (49,999,999 evens verified,
+  12.19 s).
+  Max over n of the SMALLEST prime in a decomposition:
+    p = 1093 first attained at n = 60,119,912
+  (i.e. every even n <= 1e+08 is prime + prime with the small
+   prime <= 1093).
+
+Frontier samples (50 even n in [4e18, 1e19], primality PROVEN):
+  smallest p:            min 3, median 37.0, max 647
+  r(n) with p < 1e4:     min 28, median 45.0, max 118
+
+100-digit samples (20 even n, PROBABLE primes only):
+  smallest p:            min 23, median 435.0, max 4651
+  r(n) with p < 1e4:     min 3, median 9.5, max 23
+
+All sampled n decompose easily; restricted representation counts stay far
+from 0, consistent with Hardy-Littlewood growth ~ n/(ln n)^2. Full data:
+results.json
+Total runtime: 15.37 s
+
+real	0m15.845s
+user	0m10.279s
+sys	0m5.752s

@@ -1,0 +1,30 @@
+  new best total length 10 after 3833 expansions
+  new best total length 8 after 3945 expansions
+  new best total length 5 after 3950 expansions
+  new best total length 3 after 3951 expansions
+input: r1=xxYYY r2=xyxYXY  cap=11  max-states=60000000  abelianization det=1 (trivial H1, ok)
+expanded=3953 stored=24103
+TRIVIALIZATION FOUND — 21 moves. Replay:
+  start: xxYYY  xyxYXY
+  r1 <- X r1 X^-1    xYYYx  xyxYXY
+  r2 <- X r2 X^-1    xYYYx  yxYXYx
+  r2 <- r2*r1^-1     xYYYx  yxYXyyX
+  r1 <- X r1 X^-1    YYYxx  yxYXyyX
+  r1 <- y r1 y^-1    YYxxY  yxYXyyX
+  r2 <- X r2 X^-1    YYxxY  XyxYXyy
+  r2 <- r2*r1        YYxxY  XyxYxY
+  r1 <- Y r1 Y^-1    YYYxx  XyxYxY
+  r1 <- x r1 x^-1    xYYYx  XyxYxY
+  r1 <- r1*r2        xYYxYxY  XyxYxY
+  r2 <- X r2 X^-1    XyxYxY  YYxYxYx
+  r2 <- y r2 y^-1    XyxYxY  YxYxYxY
+  r2 <- r2*r1^-1     XyxYxY  YxYYx
+  r1 <- x r1 x^-1    xYxYY  XyxYxY
+  r1 <- Y r1 Y^-1    YxYxY  XyxYxY
+  r2 <- r2*r1^-1     YxYxY  Xyy
+  r1 <- y r1 y^-1    yXy  YxYxY
+  r2 <- r2*r1        yXy  Yx
+  r2 <- r2*r1        Yx  y
+  r1 <- r1*r2        x  Yx
+  r2 <- r2*r1^-1     x  Y
+Replay verified: reached trivial presentation.
