@@ -122,7 +122,8 @@ solutions), consistent with the literature.
 | 1,500,000–2,000,000 | 5,129 | 0 |
 | 2,000,000–2,500,000 | 7,222 | 0 |
 | 2,500,000–3,200,000 | 12,443 | 0 |
-| 3,200,000–4,000,000 | in progress | — |
+| 3,200,000–4,000,000 | 18,003 | 0 |
+| 4,000,000–4,300,000 | in progress | — |
 
 ## Where a real breakthrough would have to come from
 
