@@ -1,3 +1,38 @@
 enumerating balanced presentations, total length <= 14 ...
 7550 distinct AC-classes with trivial abelianization
 AK(3) present in enumeration as xyxYXY xxxxYYY
+
+TRIVIALIZED: 7522   UNRESOLVED by search: 28
+of the unresolved: 9 proven NONTRIVIAL groups, 19 OPEN
+  nontrivial: xxyXy          xyyyyxY        via S_5, x->(0, 1, 3, 4, 2), y->(2, 3, 1, 4, 0)
+  nontrivial: xxyXy          xxxyyyyy       via S_5, x->(0, 1, 3, 4, 2), y->(2, 3, 1, 4, 0)
+  nontrivial: xxyXy          xyXYYYXy       via S_5, x->(0, 1, 3, 4, 2), y->(2, 3, 1, 4, 0)
+  nontrivial: xyxyxY         xxxxxyy        via S_5, x->(1, 2, 3, 4, 0), y->(0, 2, 1, 4, 3)
+  nontrivial: xyxYXY         xxxYXXY        via S_5, x->(1, 2, 3, 4, 0), y->(2, 0, 4, 1, 3)
+  nontrivial: xyxYXY         xxYXyXY        via S_5, x->(1, 2, 3, 4, 0), y->(2, 0, 4, 1, 3)
+  nontrivial: xxxyXXy        xxyXYXy        via S_5, x->(1, 2, 3, 4, 0), y->(1, 3, 0, 4, 2)
+  nontrivial: xxyXy          xyxyXYYXy      via S_5, x->(0, 1, 3, 4, 2), y->(2, 3, 1, 4, 0)
+  nontrivial: xxyXYXy        xyXYYXy        via S_5, x->(1, 2, 3, 4, 0), y->(1, 3, 0, 4, 2)
+
+OPEN cases (should be AK(3) and nontrivial groups without small quotients):
+  xxyXYY         xxxYYXy        total=13
+  xyxYXY         xxxxYYY        total=13  <-- AK(3)
+  xxxxyXy        xyyyxYY        total=14
+  xxxxyyy        xyxyyxY        total=14
+  xxxyXXy        xyyXYYY        total=14
+  xxxyXXY        xyyXYYY        total=14
+  xxxyXyy        xyxyyXY        total=14
+  xxxyXYY        xyyXYxY        total=14
+  xxyxxYY        xyXYYXy        total=14
+  xxyxyXY        xxYYXyy        total=14
+  xxyxYXY        xyXyxYY        total=14
+  xxyxYXY        xyXyXYY        total=14
+  xxyXXYY        xyxYYXy        total=14
+  xxyXy          xyyyXYYYY      total=14
+  xxyXy          xyyyyyxYY      total=14
+  xxyXy          xyyyyyyxY      total=14
+  xxyXyXY        xyxyXYY        total=14
+  xxyXyXY        xyXYYXy        total=14
+  xxyXYXy        xyXyxYY        total=14
+
+longest trivialization found: 201 moves

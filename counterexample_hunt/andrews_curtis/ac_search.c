@@ -159,6 +159,53 @@ static const char *MOVE_NAMES[] = {
     "r2 <- x r2 x^-1", "r2 <- X r2 X^-1", "r2 <- y r2 y^-1", "r2 <- Y r2 Y^-1",
 };
 
+/* --- multi-target watch list -------------------------------------------
+ * Checking every insert against every target would dominate runtime, so we
+ * first test a bitmap of which (len1,len2) pairs any target uses; only the
+ * rare length-matching insert does memcmp against the list.
+ */
+#define MAX_TARGETS 256
+static int parse_word(const char *s, Word *w);
+static uint8_t tgt_key[MAX_TARGETS][WBUF * 2];
+static int tgt_klen[MAX_TARGETS], tgt_found[MAX_TARGETS], n_targets;
+static char tgt_name[MAX_TARGETS][2 * WBUF + 2];
+static uint8_t tgt_lenpair[MAXCAP + 1][MAXCAP + 1];
+
+static int load_targets(const char *path, int cap) {
+    FILE *f = fopen(path, "r");
+    if (!f) { fprintf(stderr, "cannot open targets file %s\n", path); return 0; }
+    char a[WBUF], b[WBUF];
+    while (n_targets < MAX_TARGETS && fscanf(f, "%123s %123s", a, b) == 2) {
+        Word w1, w2;
+        if (!parse_word(a, &w1) || !parse_word(b, &w2)) {
+            fprintf(stderr, "bad target word: %s %s\n", a, b);
+            fclose(f);
+            return 0;
+        }
+        if (w1.n > cap || w2.n > cap) {
+            fprintf(stderr, "target %s %s exceeds cap %d\n", a, b, cap);
+            fclose(f);
+            return 0;
+        }
+        tgt_klen[n_targets] = pack(&w1, &w2, tgt_key[n_targets]);
+        snprintf(tgt_name[n_targets], sizeof tgt_name[0], "%s %s", a, b);
+        tgt_lenpair[tgt_key[n_targets][0]][tgt_key[n_targets][1]] = 1;
+        n_targets++;
+    }
+    fclose(f);
+    fprintf(stderr, "loaded %d targets\n", n_targets);
+    return n_targets > 0;
+}
+
+/* returns index of a newly-matched target, or -1 */
+static int check_targets(const uint8_t *key, int klen) {
+    if (!tgt_lenpair[key[0]][key[1]]) return -1;
+    for (int i = 0; i < n_targets; i++)
+        if (!tgt_found[i] && tgt_klen[i] == klen && !memcmp(tgt_key[i], key, (size_t)klen))
+            return i;
+    return -1;
+}
+
 /* apply move m to (r1, r2) in place; returns 0 if result is invalid (empty relator) */
 static int apply_move(int m, Word *r1, Word *r2, int cap) {
     Word t;
@@ -242,6 +289,7 @@ int main(int argc, char **argv) {
     max_states = 50000000ULL;
     uint8_t target_key[WBUF * 2];
     int target_len = 0;
+    const char *targets_file = NULL;
     for (int i = 3; i < argc - 1; i++) {
         if (!strcmp(argv[i], "--cap")) cap = atoi(argv[i + 1]);
         if (!strcmp(argv[i], "--max-states")) max_states = strtoull(argv[i + 1], NULL, 10);
@@ -253,7 +301,9 @@ int main(int argc, char **argv) {
             }
             target_len = pack(&t1, &t2, target_key);
         }
+        if (!strcmp(argv[i], "--targets")) targets_file = argv[i + 1];
     }
+    if (targets_file && !load_targets(targets_file, cap)) return 2;
     if (cap < 1 || cap > MAXCAP) { fprintf(stderr, "cap must be 1..%d\n", MAXCAP); return 2; }
 
     /* abelianization sanity check: exponent-sum matrix must have det ±1 */
@@ -293,6 +343,10 @@ int main(int argc, char **argv) {
         fprintf(stderr, "target exceeds cap — raise --cap\n");
         return 2;
     }
+    if (n_targets) {
+        int hit = check_targets(key, klen);
+        if (hit >= 0) { tgt_found[hit] = 1; printf("TARGET IN COMPONENT: %s (start state)\n", tgt_name[hit]); }
+    }
 
     uint64_t expanded = 0;
     int truncated = 0;
@@ -330,6 +384,15 @@ int main(int argc, char **argv) {
                        cap, (unsigned long long)expanded, n_nodes);
                 return 0;
             }
+            if (n_targets) {
+                int hit = check_targets(key, klen);
+                if (hit >= 0) {
+                    tgt_found[hit] = 1;
+                    printf("TARGET IN COMPONENT: %s (stored=%u)\n",
+                           tgt_name[hit], n_nodes);
+                    fflush(stdout);
+                }
+            }
             if (!target_len && n1.n + n2.n == 2) {
                 printf("expanded=%llu stored=%u\n", (unsigned long long)expanded, n_nodes);
                 replay_and_print(child, &init1, &init2, cap);
@@ -344,5 +407,14 @@ done:
                      : "EXHAUSTED (rigorous: no path within cap)",
            target_len ? "target NOT reachable" : "no trivialization",
            (unsigned long long)expanded, n_nodes, best, cap);
+    if (n_targets) {
+        int found = 0;
+        for (int i = 0; i < n_targets; i++) found += tgt_found[i];
+        printf("targets in component: %d of %d%s\n", found, n_targets,
+               truncated ? " (TRUNCATED — absences are inconclusive)"
+                         : " (EXHAUSTED — absences are rigorous)");
+        for (int i = 0; i < n_targets; i++)
+            if (!tgt_found[i]) printf("  NOT in component: %s\n", tgt_name[i]);
+    }
     return truncated ? 3 : 4;
 }

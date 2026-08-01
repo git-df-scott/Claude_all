@@ -1,0 +1,272 @@
+{
+  "max_total_length": 14,
+  "classes": 7550,
+  "trivialized": 7522,
+  "proven_nontrivial": 9,
+  "open": [
+    [
+      "xxyXYY",
+      "xxxYYXy"
+    ],
+    [
+      "xyxYXY",
+      "xxxxYYY"
+    ],
+    [
+      "xxxxyXy",
+      "xyyyxYY"
+    ],
+    [
+      "xxxxyyy",
+      "xyxyyxY"
+    ],
+    [
+      "xxxyXXy",
+      "xyyXYYY"
+    ],
+    [
+      "xxxyXXY",
+      "xyyXYYY"
+    ],
+    [
+      "xxxyXyy",
+      "xyxyyXY"
+    ],
+    [
+      "xxxyXYY",
+      "xyyXYxY"
+    ],
+    [
+      "xxyxxYY",
+      "xyXYYXy"
+    ],
+    [
+      "xxyxyXY",
+      "xxYYXyy"
+    ],
+    [
+      "xxyxYXY",
+      "xyXyxYY"
+    ],
+    [
+      "xxyxYXY",
+      "xyXyXYY"
+    ],
+    [
+      "xxyXXYY",
+      "xyxYYXy"
+    ],
+    [
+      "xxyXy",
+      "xyyyXYYYY"
+    ],
+    [
+      "xxyXy",
+      "xyyyyyxYY"
+    ],
+    [
+      "xxyXy",
+      "xyyyyyyxY"
+    ],
+    [
+      "xxyXyXY",
+      "xyxyXYY"
+    ],
+    [
+      "xxyXyXY",
+      "xyXYYXy"
+    ],
+    [
+      "xxyXYXy",
+      "xyXyxYY"
+    ]
+  ],
+  "nontrivial_certificates": [
+    {
+      "r1": "xxyXy",
+      "r2": "xyyyyxY",
+      "n": 5,
+      "x_image": [
+        0,
+        1,
+        3,
+        4,
+        2
+      ],
+      "y_image": [
+        2,
+        3,
+        1,
+        4,
+        0
+      ]
+    },
+    {
+      "r1": "xxyXy",
+      "r2": "xxxyyyyy",
+      "n": 5,
+      "x_image": [
+        0,
+        1,
+        3,
+        4,
+        2
+      ],
+      "y_image": [
+        2,
+        3,
+        1,
+        4,
+        0
+      ]
+    },
+    {
+      "r1": "xxyXy",
+      "r2": "xyXYYYXy",
+      "n": 5,
+      "x_image": [
+        0,
+        1,
+        3,
+        4,
+        2
+      ],
+      "y_image": [
+        2,
+        3,
+        1,
+        4,
+        0
+      ]
+    },
+    {
+      "r1": "xyxyxY",
+      "r2": "xxxxxyy",
+      "n": 5,
+      "x_image": [
+        1,
+        2,
+        3,
+        4,
+        0
+      ],
+      "y_image": [
+        0,
+        2,
+        1,
+        4,
+        3
+      ]
+    },
+    {
+      "r1": "xyxYXY",
+      "r2": "xxxYXXY",
+      "n": 5,
+      "x_image": [
+        1,
+        2,
+        3,
+        4,
+        0
+      ],
+      "y_image": [
+        2,
+        0,
+        4,
+        1,
+        3
+      ]
+    },
+    {
+      "r1": "xyxYXY",
+      "r2": "xxYXyXY",
+      "n": 5,
+      "x_image": [
+        1,
+        2,
+        3,
+        4,
+        0
+      ],
+      "y_image": [
+        2,
+        0,
+        4,
+        1,
+        3
+      ]
+    },
+    {
+      "r1": "xxxyXXy",
+      "r2": "xxyXYXy",
+      "n": 5,
+      "x_image": [
+        1,
+        2,
+        3,
+        4,
+        0
+      ],
+      "y_image": [
+        1,
+        3,
+        0,
+        4,
+        2
+      ]
+    },
+    {
+      "r1": "xxyXy",
+      "r2": "xyxyXYYXy",
+      "n": 5,
+      "x_image": [
+        0,
+        1,
+        3,
+        4,
+        2
+      ],
+      "y_image": [
+        2,
+        3,
+        1,
+        4,
+        0
+      ]
+    },
+    {
+      "r1": "xxyXYXy",
+      "r2": "xyXYYXy",
+      "n": 5,
+      "x_image": [
+        1,
+        2,
+        3,
+        4,
+        0
+      ],
+      "y_image": [
+        1,
+        3,
+        0,
+        4,
+        2
+      ]
+    }
+  ],
+  "ak3_canonical": [
+    "xyxYXY",
+    "xxxxYYY"
+  ],
+  "longest_trivialization_moves": 201,
+  "attempts": [
+    [
+      14,
+      3000000
+    ],
+    [
+      17,
+      20000000
+    ]
+  ]
+}

@@ -16,6 +16,7 @@ Usage: python3 triage_open.py validation_results_len14.json [cap] [max_states]
 import json
 import subprocess
 import sys
+from concurrent.futures import ThreadPoolExecutor
 
 AK3 = ("xyxYXY", "xxxxYYY")
 
@@ -49,13 +50,27 @@ def main():
     openc = [tuple(p) for p in data["open"]]
     print(f"{len(openc)} open classes from {path}; cap={cap} budget={budget}\n")
 
+    others = [p for p in openc if p != AK3]
+    # cheap test first, in parallel; only survivors get the expensive path search
+    with ThreadPoolExecutor(max_workers=4) as pool:
+        quots = dict(zip(others, pool.map(lambda p: quotient_test(*p), others)))
+    for p, q in quots.items():
+        print(f"  quotient {p[0]:<16} {p[1]:<16} {q}", flush=True)
+
+    survivors = [p for p in others if quots[p] != "NONTRIVIAL"]
+    print(f"\n{len(survivors)} survive the quotient test; running AK(3) path "
+          f"search (cap={cap}) on each\n", flush=True)
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        tgts = dict(zip(survivors,
+                        pool.map(lambda p: target_test(*p, cap, budget), survivors)))
+
     verdicts = []
     for r1, r2 in openc:
         if (r1, r2) == AK3:
             verdict, q, t = "AK(3) ITSELF", "-", "-"
         else:
-            q = quotient_test(r1, r2)
-            t = target_test(r1, r2, cap, budget)
+            q = quots[(r1, r2)]
+            t = tgts.get((r1, r2), "-")
             if q == "NONTRIVIAL":
                 verdict = "NOT A TRIVIAL-GROUP PRESENTATION"
             elif t == "AK3_EQUIVALENT":

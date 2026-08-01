@@ -1,0 +1,10 @@
+loaded 18 targets
+input: r1=xyxYXY r2=xxxxYYY  cap=12  max-states=150000000  abelianization det=1 (trivial H1, ok)
+TARGET IN COMPONENT: xxyXyXY xyXYYXy (stored=244795)
+TARGET IN COMPONENT: xxyxYXY xyXyXYY (stored=10660610)
+TARGET IN COMPONENT: xxyXyXY xyxyXYY (stored=12462642)
+TARGET IN COMPONENT: xxyXYY xxxYYXy (stored=13462691)
+TARGET IN COMPONENT: xxxyXYY xyyXYxY (stored=13507073)
+TARGET IN COMPONENT: xxyXy xyyyXYYYY (stored=21558144)
+  ... expanded 16M states, stored 41M, frontier len 21
+  ... expanded 32M states, stored 74M, frontier len 21
