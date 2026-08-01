@@ -161,6 +161,21 @@ has survived while being widely disbelieved.
   present the trivial group — is what a counterexample hunt at this frontier
   can honestly deliver.
 
+- **A methodological error worth recording.** The validation sweep escalates
+  the relator cap (14 → 17) on failure, on the assumption that a higher cap is
+  a strictly stronger search. That assumption is **false**: a lower cap prunes
+  the state space, so greedy shortest-first expansion penetrates much further
+  along the paths that matter. Re-attacking at **cap 12** with a large budget
+  trivialized 14 presentations the sweep had declared open — with paths of
+  101–205 moves, exactly the depth a diluted higher-cap frontier never reaches.
+  The failures clustered (12 of 14 shared one relator), so this was a
+  systematic blind spot, not noise. Consequence: a single search profile
+  cannot support an "open" verdict, and the raw length-15 counts were inflated
+  by ~5%. The AK(3)/AK(4) results are unaffected — those were exhaustive from
+  the start — and the length-14 shortlist actually *strengthened* under the
+  corrected profile, its verdicts upgrading from "no trivialization found" to
+  EXHAUSTED.
+
 - **Independent agreement with the literature.** J. Carreras,
   "Machine-checkable equivalence certificates at the length-14 Andrews–Curtis
   frontier" (arXiv:2607.23611), states that unconditional verification stands

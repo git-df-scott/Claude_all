@@ -208,14 +208,38 @@ proven presentations of the trivial group, 8 inconclusive, and zero nontrivial
 groups** (`tc_len15_open.json`, 34 s). So these are genuine AC test cases, not
 budget noise and not impostor groups.
 
-What *is* still unsettled about them is **distinctness**, not validity. The
-enumeration quotients only by the obvious symmetries, not by full
-AC-equivalence, so one AC-class can appear many times — at length 14, 6 of 19
-open classes collapsed into AK(3)'s single class once tested. 280 is therefore
-an upper bound on distinct candidates, likely a loose one; the collapse test
-(`ak3_component_len15.log`) runs all 280 as simultaneous targets against one
-exhaustive enumeration of AK(3)'s component. AK(4) is among the open classes,
-as expected.
+Two further things were wrong with treating 280 as a candidate count, and both
+were measured rather than assumed.
+
+**1. ~5% were false positives.** Re-attacking under the corrected cap-12
+profile killed **14 of the 280** (`recheck_len15_a.log`, `recheck_len15_b.log`:
+149 tested, 13 trivialized, 136 exhausted, 0 truncated; plus 1 found during
+partitioning). Trivializations ran 101–205 moves. The failures are *clustered*,
+not random — 12 of the 14 share the relator `xxyXYY`, one family that the
+sweep's higher-cap profile systematically mishandled, since at cap 14–17 the
+frontier is diluted across far more states and a ~200-move path is never
+reached within budget.
+
+**2. Distinctness.** The enumeration quotients only by the obvious symmetries,
+not by full AC-equivalence, so one AC-class appears many times — at length 14,
+6 of 19 open classes collapsed into AK(3)'s. Measured collapse:
+
+| Step | Remaining |
+|---|---|
+| Open after sweep | 288 |
+| Proven trivial group (Todd–Coxeter) | 280 |
+| − AK(3)'s class (`ak3_component_len15.log`) | 202 (**−78**) |
+| − AK(4)'s class (`ak4_component_len15.log`) | 197 (**−5**) |
+| − partition classes 1–8 (`partition.log`) | 149 |
+| − killed by the cap-12 recheck | **136 surviving** |
+
+Both collapse runs exhausted, so their absences are rigorous, and each
+reproduced its component count exactly (99,344,336 and 101,475,328). The
+partition is **incomplete** — it was stopped after 9 rounds of a job that would
+need ~197 — so the number of *distinct* AC-classes among the surviving 136 is
+not yet known; it is at least 10 (AK(3), AK(4), and classes 1–8). Every one of
+the 136 survivors is now backed by an EXHAUSTED verdict, i.e. a rigorous proof
+that no cap-12 trivialization exists, rather than a budget stop.
 
 The length-≤12 row is a clean independent replication of Miasnikov (*IJAC*
 1999): **every** presentation in range either AC-trivializes or is provably
