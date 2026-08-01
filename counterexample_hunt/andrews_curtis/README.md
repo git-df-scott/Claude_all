@@ -110,10 +110,18 @@ AK(3)             xyxYXY xxxxYYY   EXHAUSTED  expanded=99344336 stored=99344336
 second open case  xxyXYY xxxYYXy   EXHAUSTED  expanded=99344336 stored=99344336
 ```
 
-(`runs_ak3_cap12_exhaustive.log`, `runs_open2_cap12.log`.) So the two OPEN
-classes are one AC-class: **there is exactly one open AC-class of total length
-≤ 13, and it is AK(3)** — precisely Havas–Ramsay's theorem, re-derived here
-from scratch.
+(`runs_ak3_cap12_exhaustive.log`, `runs_open2_cap12.log`.) The engine's
+`--target` mode confirms this a second, more direct way — by exhibiting an
+actual path rather than comparing component sizes:
+
+```
+$ ./ac_search xxyXYY xxxYYXy --cap 12 --target xyxYXY xxxxYYY
+TARGET REACHED: AC-equivalent within cap 12 (expanded=4285770 ...)
+```
+
+So the two OPEN classes are one AC-class: **there is exactly one open AC-class
+of total length ≤ 13, and it is AK(3)** — precisely Havas–Ramsay's theorem,
+re-derived here from scratch.
 
 **The disproof gap, precisely:** a counterexample claim is the Π₁ statement
 "no finite AC sequence trivializes this presentation." Search can only remove

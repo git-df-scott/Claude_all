@@ -21,7 +21,13 @@
  * so from a presentation of the trivial group the only length-2 states are
  * {x^±1, y^±1}, i.e. the trivial presentation up to inversion.
  *
- * Usage: ./ac_search R1 R2 --cap N [--max-states N]
+ * With --target T1 T2 the search instead reports whether the target
+ * presentation is reachable, which decides AC-equivalence of the two inputs
+ * within the cap: every move's inverse is also a move and respects the cap,
+ * so the cap-restricted move graph is undirected and the reachable set is
+ * exactly the connected component of the start.
+ *
+ * Usage: ./ac_search R1 R2 --cap N [--max-states N] [--target T1 T2]
  */
 #include <stdint.h>
 #include <stdio.h>
@@ -234,9 +240,19 @@ int main(int argc, char **argv) {
     }
     int cap = 0;
     max_states = 50000000ULL;
+    uint8_t target_key[WBUF * 2];
+    int target_len = 0;
     for (int i = 3; i < argc - 1; i++) {
         if (!strcmp(argv[i], "--cap")) cap = atoi(argv[i + 1]);
         if (!strcmp(argv[i], "--max-states")) max_states = strtoull(argv[i + 1], NULL, 10);
+        if (!strcmp(argv[i], "--target") && i + 2 < argc) {
+            Word t1, t2;
+            if (!parse_word(argv[i + 1], &t1) || !parse_word(argv[i + 2], &t2)) {
+                fprintf(stderr, "bad target word\n");
+                return 2;
+            }
+            target_len = pack(&t1, &t2, target_key);
+        }
     }
     if (cap < 1 || cap > MAXCAP) { fprintf(stderr, "cap must be 1..%d\n", MAXCAP); return 2; }
 
@@ -269,6 +285,14 @@ int main(int argc, char **argv) {
     uint32_t root = lookup_or_insert(key, klen, UINT32_MAX, 0, &is_new);
     node_parent[root] = UINT32_MAX;
     bucket_push(init1.n + init2.n, root);
+    if (target_len && target_len == klen && !memcmp(key, target_key, (size_t)klen)) {
+        printf("TARGET REACHED at the start state (inputs are identical)\n");
+        return 0;
+    }
+    if (target_len && (target_key[0] > cap || target_key[1] > cap)) {
+        fprintf(stderr, "target exceeds cap — raise --cap\n");
+        return 2;
+    }
 
     uint64_t expanded = 0;
     int truncated = 0;
@@ -300,7 +324,13 @@ int main(int argc, char **argv) {
             uint32_t child = lookup_or_insert(key, klen, cur, (uint8_t)m, &is_new);
             if (is_new == -1) { truncated = 1; goto done; }
             if (!is_new) continue;
-            if (n1.n + n2.n == 2) {
+            if (target_len && target_len == klen && !memcmp(key, target_key, (size_t)klen)) {
+                printf("TARGET REACHED: AC-equivalent within cap %d "
+                       "(expanded=%llu stored=%u)\n",
+                       cap, (unsigned long long)expanded, n_nodes);
+                return 0;
+            }
+            if (!target_len && n1.n + n2.n == 2) {
                 printf("expanded=%llu stored=%u\n", (unsigned long long)expanded, n_nodes);
                 replay_and_print(child, &init1, &init2, cap);
                 return 0;
@@ -309,9 +339,10 @@ int main(int argc, char **argv) {
         }
     }
 done:
-    printf("%s: no trivialization. expanded=%llu stored=%u best_total_length=%d cap=%d\n",
+    printf("%s: %s. expanded=%llu stored=%u best_total_length=%d cap=%d\n",
            truncated ? "TRUNCATED (state budget hit — inconclusive)"
                      : "EXHAUSTED (rigorous: no path within cap)",
+           target_len ? "target NOT reachable" : "no trivialization",
            (unsigned long long)expanded, n_nodes, best, cap);
     return truncated ? 3 : 4;
 }
