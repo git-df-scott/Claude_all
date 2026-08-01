@@ -49,6 +49,36 @@ AK(3) is now known *stably* AC-trivial (same line of work; also Lisitsa,
 arXiv:2501.18601), so it can only witness failure of the standard (unstable)
 conjecture.
 
+## Length-14 triage: which open classes are AK(3) in disguise?
+
+At total length ≤ 14 the sweep leaves 19 open classes (2 carried over from
+length 13, 17 new). The efficient way to test them against AK(3) is *not* one
+search per candidate — the negatives would be inconclusive, since AK(3)'s
+cap-12 component alone is ~10⁸ states, larger than any per-candidate budget
+could exhaust. Instead the engine's `--targets` mode enumerates AK(3)'s
+component **once** and reports which candidates fall inside it:
+
+```
+$ ./ac_search xyxYXY xxxxYYY --cap 12 --max-states 150000000 \
+      --targets targets_len14.txt
+EXHAUSTED ... expanded=99344336 stored=99344336
+targets in component: 6 of 18 (EXHAUSTED — absences are rigorous)
+```
+
+The run exhausts at **exactly 99,344,336 states**, reproducing the independent
+AK(3)-only run to the digit. Because it exhausts, absences are rigorous, not
+budget artifacts. Result (`ak3_component_len14.log`): **6 of the 18 are AK(3)
+in disguise; 12 are provably not reachable from AK(3) within cap 12.**
+
+Read that last claim precisely. "Not in the cap-12 component" rules out only
+AC paths whose every intermediate relator stays ≤ 12 letters. These 12 could
+still be AC-equivalent to AK(3) through longer intermediates, and — more
+importantly — a class that neither trivializes nor has a small quotient may
+simply present a **nontrivial group**, which would put it outside the
+Andrews–Curtis question entirely. Deciding that is what `todd_coxeter.py` is
+for: coset enumeration completing at index 1 *proves* a presentation defines
+the trivial group.
+
 ## Systematic validation against the published frontier
 
 `validate_frontier.py` tests the engine against the literature at scale rather
@@ -75,6 +105,7 @@ Results (`validation_len<N>.log`, `validation_results_len<N>.json`):
 | ≤ 11 | 530 | 530 | 0 | 0 |
 | ≤ 12 | 1121 | 1120 | 1 | **0** |
 | ≤ 13 | 3480 | 3472 | 6 | **2 (= 1 AC-class: AK(3))** |
+| ≤ 14 | 7550 | 7522 | 9 | 19 (triaged below) |
 
 The length-≤12 row is a clean independent replication of Miasnikov (*IJAC*
 1999): **every** presentation in range either AC-trivializes or is provably
