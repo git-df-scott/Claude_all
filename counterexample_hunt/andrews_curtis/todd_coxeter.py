@@ -94,24 +94,32 @@ def cyclic_reduce(word):
     return w
 
 
-def _prepare(relators):
-    """Normalise relator strings into (forward, inverse-letter) index tuples."""
-    rels = []
-    for r in relators:
-        w = cyclic_reduce(parse_word(r))
+def _prepare(words, cyclic):
+    """Normalise words into (forward, inverse-letter) index tuples.
+
+    ``cyclic`` must be True only for relators.  Cyclic reduction replaces
+    g w g^-1 by w, which preserves the normal closure (so it is safe for a
+    relator) but *not* the subgroup generated (so it is wrong for a subgroup
+    generator: <g w g^-1> != <w> in general).
+    """
+    out = []
+    for r in words:
+        w = cyclic_reduce(parse_word(r)) if cyclic else free_reduce(parse_word(r))
         if not w:
-            continue  # freely trivial relator, no information
-        rels.append((tuple(w), tuple(INV[g] for g in w)))
-    return rels
+            continue  # freely trivial, carries no information
+        out.append((tuple(w), tuple(INV[g] for g in w)))
+    return out
 
 
 def _enumerate(relators, max_cosets, subgroup_gens=()):
     """Core enumeration.  Returns a dict with the raw table and statistics."""
-    rels = _prepare(relators)
-    subs = _prepare(subgroup_gens)
+    rels = _prepare(relators, cyclic=True)
+    subs = _prepare(subgroup_gens, cyclic=False)
 
     if max_cosets < 1:
         raise ValueError("max_cosets must be >= 1")
+    if max_cosets > 2 ** 31 - 2:
+        raise ValueError("max_cosets must fit a signed 32-bit array('i') entry")
 
     cap = min(max_cosets, 4096)
     table = _zeros(4 * (cap + 1))   # table[4*c + g], 0 == undefined
@@ -234,28 +242,6 @@ def _enumerate(relators, max_cosets, subgroup_gens=()):
                 return
             define(f, w[i])
 
-    def scan_only(alpha, w, wi):
-        """Scan without defining.  True if the scan closed on alpha."""
-        f = alpha
-        i = 0
-        b = alpha
-        j = len(w) - 1
-        while i <= j:
-            t = table[4 * f + w[i]]
-            if t == 0:
-                break
-            f = t
-            i += 1
-        if i > j:
-            return f == b
-        while j >= i:
-            t = table[4 * b + wi[j]]
-            if t == 0:
-                break
-            b = t
-            j -= 1
-        return False
-
     status = None
     t0 = time.time()
     try:
@@ -310,6 +296,7 @@ def _enumerate(relators, max_cosets, subgroup_gens=()):
         "p": p,
         "n": n,
         "relators": rels,
+        "subgroup": subs,
         "max_cosets": max_cosets,
     }
 
@@ -351,6 +338,31 @@ def verify_table(result):
             if c != a:
                 return False, "relator %s does not close at coset %d (ends %d)" % (
                     unparse_word(w), a, c)
+    # every subgroup generator must fix the coset of H itself (coset 1)
+    one = 1
+    while p[one] != one:
+        one = p[one]
+    for w, _wi in result.get("subgroup", ()):
+        c = one
+        for g in w:
+            c = table[4 * c + g]
+        if c != one:
+            return False, "subgroup generator %s does not fix coset H" % (
+                unparse_word(w))
+    # the action must be transitive from coset 1, else the table is not a
+    # coset table at all
+    seen = {one}
+    stack = [one]
+    while stack:
+        c = stack.pop()
+        for g in range(4):
+            d = table[4 * c + g]
+            if d not in seen:
+                seen.add(d)
+                stack.append(d)
+    if len(seen) != len(live):
+        return False, "action is not transitive (%d of %d cosets reachable)" % (
+            len(seen), len(live))
     return True, "table closed and complete on %d cosets" % len(live)
 
 

@@ -6,7 +6,7 @@
     "index": 1,
     "peak_cosets": 173,
     "coincidences": 172,
-    "seconds": 0.001,
+    "seconds": 0.002,
     "max_cosets": 2000000,
     "checks": "verify=PASS; abelian=PASS(ab: |G^ab| = 1 divides 1)"
   },
@@ -17,7 +17,7 @@
     "index": 1,
     "peak_cosets": 155,
     "coincidences": 154,
-    "seconds": 0.001,
+    "seconds": 0.002,
     "max_cosets": 2000000,
     "checks": "verify=PASS; abelian=PASS(ab: |G^ab| = 1 divides 1)"
   },
@@ -83,7 +83,7 @@
     "index": 1,
     "peak_cosets": 138,
     "coincidences": 137,
-    "seconds": 0.001,
+    "seconds": 0.0,
     "max_cosets": 2000000,
     "checks": "verify=PASS; abelian=PASS(ab: |G^ab| = 1 divides 1)"
   },
@@ -149,9 +149,10 @@
     "index": null,
     "peak_cosets": 2000000,
     "coincidences": 283727,
-    "seconds": 3.959,
+    "seconds": 4.339,
     "max_cosets": 2000000,
-    "checks": "abelian=PASS(ab: |G^ab| = 1)"
+    "checks": "abelian=PASS(ab: |G^ab| = 1)",
+    "note": "still inconclusive at 20000000 cosets; H=1 order=xxyXy/xyyyyyyxY: INCONCLUSIVE (peak 20000000); H=1 order=xyyyyyyxY/xxyXy: INCONCLUSIVE (peak 20000000); H=<x>: INCONCLUSIVE (peak 20000000); H=<y>: INCONCLUSIVE (peak 20000000); H=<xy>: INCONCLUSIVE (peak 20000000); H=<xY>: INCONCLUSIVE (peak 20000000)"
   },
   {
     "r1": "xxyXyXY",
@@ -160,7 +161,7 @@
     "index": 1,
     "peak_cosets": 56,
     "coincidences": 55,
-    "seconds": 0.002,
+    "seconds": 0.004,
     "max_cosets": 2000000,
     "checks": "verify=PASS; abelian=PASS(ab: |G^ab| = 1 divides 1)"
   },
