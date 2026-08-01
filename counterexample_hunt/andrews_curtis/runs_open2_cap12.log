@@ -3,3 +3,5 @@
   ... expanded 48M states, stored 87M, frontier len 23
   ... expanded 64M states, stored 87M, frontier len 23
   ... expanded 80M states, stored 88M, frontier len 23
+input: r1=xxyXYY r2=xxxYYXy  cap=12  max-states=150000000  abelianization det=1 (trivial H1, ok)
+EXHAUSTED (rigorous: no path within cap): no trivialization. expanded=99344336 stored=99344336 best_total_length=13 cap=12

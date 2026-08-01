@@ -143,9 +143,8 @@ def to_str(w):
 
 
 def run_engine(pres):
-    """Return (status, moves, detail). status in {TRIVIALIZED, UNRESOLVED}."""
+    """Return (status, moves). status is TRIVIALIZED or UNRESOLVED."""
     r1, r2 = to_str(pres[0]), to_str(pres[1])
-    last = ""
     for cap, budget in ATTEMPTS:
         out = subprocess.run(
             [ENGINE, r1, r2, "--cap", str(cap), "--max-states", str(budget)],
@@ -154,9 +153,8 @@ def run_engine(pres):
         if "TRIVIALIZATION FOUND" in out:
             moves = int(out.split("TRIVIALIZATION FOUND — ")[1].split(" ")[0])
             assert "Replay verified" in out, f"replay failed for {r1} {r2}"
-            return "TRIVIALIZED", moves, f"cap={cap}"
-        last = "EXHAUSTED" if "EXHAUSTED" in out else "TRUNCATED"
-    return "UNRESOLVED", None, last
+            return "TRIVIALIZED", moves
+    return "UNRESOLVED", None
 
 
 # --- nontriviality certificates via permutation quotients ---------------------

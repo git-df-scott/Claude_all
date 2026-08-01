@@ -74,7 +74,7 @@ Results (`validation_results.json`, `validation_len13.log`):
 | ≤ 9 | 90 | 90 | 0 | 0 |
 | ≤ 11 | 530 | 530 | 0 | 0 |
 | ≤ 12 | 1121 | 1120 | 1 | **0** |
-| ≤ 13 | 3480 | 3472 | 6 | **2** |
+| ≤ 13 | 3480 | 3472 | 6 | **2 (= 1 AC-class: AK(3))** |
 
 The length-≤12 row is a clean independent replication of Miasnikov (*IJAC*
 1999): **every** presentation in range either AC-trivializes or is provably
@@ -92,14 +92,28 @@ xyxYXY   xxxxYYY   total=13   <-- AK(3)
 
 Neither has a nontrivial quotient in any Sₙ for n ≤ 6 (`quotient_search.py`,
 `quotient_open2.log`, `quotient_ak3.log`), consistent with both presenting the
-trivial group. The second class is *not* a competing counterexample: the
-theorem predicts it is AC-equivalent to AK(3), and our enumeration only
-quotients by the obvious symmetries (rotation, inversion, swap, generator
-permutations), not by full AC-equivalence, so an AK(3) relative appearing as a
-separate class is expected. The decisive test needs no new code — if the two
-lie in the same cap-12 connected component, an exhaustive cap-12 run from
-either must enumerate the *identical* state count. See `runs_open2_cap12.log`
-against AK(3)'s 99,344,336.
+trivial group. The second class is *not* a competing counterexample — it is
+AK(3) in disguise, and we can prove it. Our enumeration quotients only by the
+obvious symmetries (rotation, inversion, swap, generator permutations), not by
+full AC-equivalence, so an AK(3) relative surfacing as a separate class is
+expected.
+
+The test needs no new code. Every AC move in the engine has its inverse in the
+move set, and both a move and its inverse respect the length cap, so the
+cap-restricted move graph is **undirected**: a run that exhausts enumerates
+exactly the connected component of its starting state. Two presentations
+therefore lie in the same component if and only if their exhaustive runs
+report the *same state count*. They do, to the digit:
+
+```
+AK(3)             xyxYXY xxxxYYY   EXHAUSTED  expanded=99344336 stored=99344336
+second open case  xxyXYY xxxYYXy   EXHAUSTED  expanded=99344336 stored=99344336
+```
+
+(`runs_ak3_cap12_exhaustive.log`, `runs_open2_cap12.log`.) So the two OPEN
+classes are one AC-class: **there is exactly one open AC-class of total length
+≤ 13, and it is AK(3)** — precisely Havas–Ramsay's theorem, re-derived here
+from scratch.
 
 **The disproof gap, precisely:** a counterexample claim is the Π₁ statement
 "no finite AC sequence trivializes this presentation." Search can only remove

@@ -126,10 +126,15 @@ has survived while being widely disbelieved.
     holdout is a provably nontrivial group — zero unexplained cases.** This is
     a clean independent replication of Miasnikov (*IJAC* 1999).
   - At total length ≤ 13: 3,472 trivialize, 6 are proven nontrivial, and
-    **exactly 2 classes remain open — one of which is AK(3)**, reproducing
-    Havas–Ramsay (*IJAC* 2003), whose theorem is that everything in range is
-    AC-trivializable *or AC-equivalent to AK(3)*. Neither open class has a
-    nontrivial quotient in any Sₙ, n ≤ 6, consistent with both presenting the
+    exactly 2 classes remain open — one of which is AK(3). Because every AC
+    move has its inverse in the move set and both respect the cap, an
+    exhaustive run enumerates precisely the connected component of its start,
+    so two presentations are AC-equivalent within the cap iff their runs
+    report the same state count. Both open classes exhaust at **exactly
+    99,344,336 states**, proving they are the same AC-class. So **there is
+    exactly one open AC-class of total length ≤ 13, and it is AK(3)** — a
+    from-scratch re-derivation of Havas–Ramsay (*IJAC* 2003). Neither has a
+    nontrivial quotient in any Sₙ, n ≤ 6, consistent with presenting the
     trivial group. Longest trivialization the engine needed: 109 moves.
 - Context from the literature (verified via search this session): the
   reinforcement-learning attack of Shehper et al. (arXiv:2408.15332, NeurIPS
@@ -248,7 +253,7 @@ theory, not missing compute.
 
 | Problem | Counterexample object | Finitely certifiable? | This session's result |
 |---|---|---|---|
-| Andrews–Curtis | AK(3) + irreducibility proof | **No** (no known invariant) | AK(2) trivialized (21 moves, replay-verified); AK(3) rigorously irreducible within cap 12 (99.3M states); deep cap-20 run inconclusive |
+| Andrews–Curtis | AK(3) + irreducibility proof | **No** (no known invariant) | Full length-≤13 frontier re-derived: 3,480 classes, all resolved, AK(3) the unique open class; AK(2) trivialized (21 moves, replay-verified); AK(3) rigorously irreducible within cap 12 (99.3M states) |
 | Collatz | nontrivial cycle | Yes, but ≥ 6.5×10¹⁰ elements | Rigorous self-contained cycle bound; 10⁸ numbers verified above 2⁷¹ |
 | Goldbach | stubborn even n | Yes | All tested n decompose abundantly to 100 digits; records match OEIS |
 | Navier–Stokes | smooth data + blowup proof | Only via computer-assisted PDE proof | Literature-verified roadmap; out of exhibition-search range |
