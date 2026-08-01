@@ -116,6 +116,21 @@ has survived while being widely disbelieved.
   AK(3) runs combined (caps 12, 13, 20; overlapping state sets), the search
   never made AK(3) even one letter shorter than it started. Inconclusive by construction (budget, not exhaustion), and
   consistent with the published difficulty of length-reducing the AK series.
+- **Systematic validation against the published frontier.** Rather than test
+  the engine on one instance, we enumerated **every** balanced 2-generator
+  presentation with total relator length ≤ 13 up to AC symmetry (3,480
+  classes with trivial abelianization), and resolved each one either by
+  trivializing it (which *proves* it presents the trivial group) or by
+  exhibiting a nontrivial permutation quotient (which *proves* it does not).
+  - At total length ≤ 12: **1,120 of 1,121 classes trivialize and the single
+    holdout is a provably nontrivial group — zero unexplained cases.** This is
+    a clean independent replication of Miasnikov (*IJAC* 1999).
+  - At total length ≤ 13: 3,472 trivialize, 6 are proven nontrivial, and
+    **exactly 2 classes remain open — one of which is AK(3)**, reproducing
+    Havas–Ramsay (*IJAC* 2003), whose theorem is that everything in range is
+    AC-trivializable *or AC-equivalent to AK(3)*. Neither open class has a
+    nontrivial quotient in any Sₙ, n ≤ 6, consistent with both presenting the
+    trivial group. Longest trivialization the engine needed: 109 moves.
 - Context from the literature (verified via search this session): the
   reinforcement-learning attack of Shehper et al. (arXiv:2408.15332, NeurIPS
   2025) resolved many Miller–Schupp potential counterexamples and

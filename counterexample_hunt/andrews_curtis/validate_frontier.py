@@ -229,7 +229,7 @@ def main():
     max_moves = max((r[1] for _, r in trivialized), default=0)
     print(f"\nlongest trivialization found: {max_moves} moves")
 
-    with open("validation_results.json", "w") as f:
+    with open(f"validation_results_len{max_total}.json", "w") as f:
         json.dump({
             "max_total_length": max_total,
             "classes": len(pres),

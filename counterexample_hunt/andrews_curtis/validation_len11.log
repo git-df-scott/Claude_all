@@ -1,0 +1,9 @@
+enumerating balanced presentations, total length <= 11 ...
+530 distinct AC-classes with trivial abelianization
+
+TRIVIALIZED: 530   UNRESOLVED by search: 0
+of the unresolved: 0 proven NONTRIVIAL groups, 0 OPEN
+
+OPEN cases (should be AK(3) and nontrivial groups without small quotients):
+
+longest trivialization found: 20 moves
