@@ -1,2 +1,19 @@
 loaded 12 targets
   ... expanded 16M states, stored 53M, frontier len 20
+  ... expanded 32M states, stored 98M, frontier len 21
+  ... expanded 48M states, stored 140M, frontier len 21
+input: r1=xyxYXY r2=xxxxYYY  cap=13  max-states=170000000  abelianization det=1 (trivial H1, ok)
+TRUNCATED (state budget hit — inconclusive): no trivialization. expanded=57520729 stored=170000000 best_total_length=13 cap=13
+targets in component: 0 of 12 (TRUNCATED — absences are inconclusive)
+  NOT in component: xxxxyXy xyyyxYY
+  NOT in component: xxxxyyy xyxyyxY
+  NOT in component: xxxyXXy xyyXYYY
+  NOT in component: xxxyXXY xyyXYYY
+  NOT in component: xxxyXyy xyxyyXY
+  NOT in component: xxyxxYY xyXYYXy
+  NOT in component: xxyxyXY xxYYXyy
+  NOT in component: xxyxYXY xyXyxYY
+  NOT in component: xxyXXYY xyxYYXy
+  NOT in component: xxyXy xyyyyyxYY
+  NOT in component: xxyXy xyyyyyyxY
+  NOT in component: xxyXYXy xyXyxYY

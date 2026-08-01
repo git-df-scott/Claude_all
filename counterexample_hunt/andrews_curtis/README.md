@@ -42,8 +42,13 @@ gcc -O2 -o ac_search ac_search.c
 Context: AK(2) is known AC-trivializable (Miasnikov, *IJAC* 1999). AK(3) is
 the unique minimal potential counterexample — every balanced 2-generator
 presentation of total length ≤ 13 is AC-trivializable except possibly AK(3)
-(Havas–Ramsay, *IJAC* 2003; certificate frontier since pushed to length 14,
-arXiv:2607.23611). The RL attack of Shehper et al. (arXiv:2408.15332,
+(Havas–Ramsay, *IJAC* 2003). The current frontier is length 14: J. Carreras,
+"Machine-checkable equivalence certificates at the length-14 Andrews–Curtis
+frontier" (arXiv:2607.23611) states that unconditional verification stands at
+total length 12 and that at length 13 everything is AC-trivializable or
+AC-equivalent to AK(3) — both of which the sweep below re-derives
+independently — and proves four AC-equivalences among six hard length-14
+Miller–Schupp presentations. The RL attack of Shehper et al. (arXiv:2408.15332,
 NeurIPS 2025) resolved many Miller–Schupp candidates but no AK(n), n ≥ 3.
 AK(3) is now known *stably* AC-trivial (same line of work; also Lisitsa,
 arXiv:2501.18601), so it can only witness failure of the standard (unstable)

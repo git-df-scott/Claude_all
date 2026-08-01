@@ -371,24 +371,68 @@ def enumerate_cosets_multi(relators, max_cosets=DEFAULT_MAX_COSETS,
     return res["status"], res["index"], res["peak_cosets"]
 
 
+def abelianized_order(r1, r2):
+    """Order of the abelianization of <x, y | r1, r2>, or None if infinite.
+
+    G^ab = Z^2 / im(M) where M has rows the exponent-sum vectors of the
+    relators, so |G^ab| = |det M| (infinite when det M = 0).  This is an
+    *independent* check on the enumeration: |G^ab| divides |G| when G is
+    finite, and det M = 0 forces G to be infinite (so the enumeration must
+    never complete).  In particular index 1 requires |det M| = 1.
+    """
+    rows = []
+    for r in (r1, r2):
+        w = parse_word(r)
+        ex = sum(1 for g in w if g == 0) - sum(1 for g in w if g == 1)
+        ey = sum(1 for g in w if g == 2) - sum(1 for g in w if g == 3)
+        rows.append((ex, ey))
+    det = rows[0][0] * rows[1][1] - rows[0][1] * rows[1][0]
+    return None if det == 0 else abs(det)
+
+
+def _abelian_check(relators, status, index):
+    """Cross-check a result against the abelianization.  (ok, message)."""
+    if len(relators) != 2:
+        return True, ""
+    try:
+        d = abelianized_order(relators[0], relators[1])
+    except ValueError:
+        return True, ""
+    if d is None:
+        if status != INCONCLUSIVE:
+            return False, "det = 0 so G^ab is infinite, but got %s" % status
+        return True, "ab: infinite"
+    if status == INCONCLUSIVE:
+        return True, "ab: |G^ab| = %d" % d
+    if index % d != 0:
+        return False, "|G^ab| = %d does not divide index %d" % (d, index)
+    return True, "ab: |G^ab| = %d divides %d" % (d, index)
+
+
 # --------------------------------------------------------------------------
 # self-test
 
 
 _KNOWN = [
     # (relators, expected status, expected index or None, note)
-    # -- 2-relator cases (the shape the CLI takes) --------------------------
+    # -- balanced 2-relator cases (the shape the CLI takes) -----------------
     (["x", "y"], TRIVIAL, 1, "trivial presentation"),
     (["x", "yy"], FINITE, 2, "Z2"),
     (["xxxxx", "y"], FINITE, 5, "Z5"),
-    (["xyXY", "xxxyyy"], FINITE, 3, "Z3 (abelian, det = 3)"),
-    (["xxYYY", "xxYXYXYX"], FINITE, 24, "binary tetrahedral <2,3,3> = SL(2,3)"),
-    (["xxYYY", "xxYXYXYXYX"], FINITE, 48, "binary octahedral <2,3,4>"),
-    (["xxYYY", "xxYXYXYXYXYX"], FINITE, 120, "binary icosahedral <2,3,5> = SL(2,5)"),
+    (["xyXY", "xxxyy"], FINITE, 3, "abelian, |det| = 3"),
+    (["xxYY", "xxYXYX"], FINITE, 8, "Q8 = <a,b | a^2 = b^2 = (ab)^2>"),
+    (["xxYYY", "xyxyxyXXXX"], FINITE, 24,
+     "binary tetrahedral <2,3,3> = SL(2,3)"),
+    (["xxYYY", "xyxyxyxyXXXXXX"], FINITE, 48, "binary octahedral <2,3,4>"),
+    (["xxYYY", "xyxyxyxyxyXXXXXXXX"], FINITE, 120,
+     "binary icosahedral <2,3,5> = SL(2,5)"),
     (["xxYYY", "xyxYXY"], TRIVIAL, 1, "AK(2)"),
     (["xxxYYYY", "xyxYXY"], TRIVIAL, 1, "AK(3)"),
+    (["xxyXy", "xyyyyxY"], None, None,
+     "known NONTRIVIAL (quotient in S5) - must NOT be index 1"),
     (["xxx", "yy"], INCONCLUSIVE, None, "Z3 * Z2 = PSL(2,Z), infinite"),
     (["xx", "yy"], INCONCLUSIVE, None, "infinite dihedral"),
+    (["xyXY", "xxxyyy"], INCONCLUSIVE, None, "Z x Z3, infinite (det = 0)"),
     (["xxYY", "xyxY"], None, None, "small case, no claim"),
     # -- more than 2 relators (internal API only) ---------------------------
     (["xyXY"], INCONCLUSIVE, None, "free abelian Z^2, infinite"),
@@ -404,7 +448,12 @@ _KNOWN = [
      "triangle group (2,3,6), infinite (Euclidean)"),
     (["xxx", "yyy", "xyxyxy"], INCONCLUSIVE, None,
      "triangle group (3,3,3), infinite (Euclidean)"),
-    (["xxxxx", "yy", "xyxyxyxy", "xyxyXYXY"], FINITE, 120, "S5"),
+    (["yy", "xxxxx", "yxyxyxyx", "yXXyxxyXXyxx"], FINITE, 120,
+     "S5, Moore presentation"),
+    (["yy", "xxxxxx", "yxyxyxyxyx", "yXXyxxyXXyxx", "yXXXyxxxyXXXyxxx"],
+     FINITE, 720, "S6, Moore presentation"),
+    (["yy", "xxx", "yxyxyxyxyxyxyx", "YXyxYXyxYXyxYXyx"], FINITE, 168,
+     "PSL(2,7) = <a,b | a^2, b^3, (ab)^7, [a,b]^4>"),
 ]
 
 
@@ -423,6 +472,10 @@ def selftest(max_cosets=2_000_000, verbose=True):
             if not vok:
                 ok = False
             vmsg = "  [verify: %s]" % vtext
+        aok, atext = _abelian_check(relators, res["status"], res["index"])
+        if not aok:
+            ok = False
+            vmsg += "  [ABELIAN CHECK FAILED: %s]" % atext
         if not ok:
             failures += 1
         if verbose:
@@ -442,6 +495,113 @@ def selftest(max_cosets=2_000_000, verbose=True):
 
 
 # --------------------------------------------------------------------------
+# randomised differential stress test of the coincidence handling
+#
+# Every transformation below leaves the presented group unchanged up to
+# isomorphism (relator inversion / rotation / conjugation and r1 -> r1*r2 leave
+# the normal closure alone; swapping the generators is an automorphism of the
+# free group).  They do however drive the enumeration down completely different
+# paths, with different coincidence patterns.  So: any two variants that both
+# complete must report the same index.  A missed or spurious coincidence would
+# almost surely break that agreement.
+
+
+def _invert(w):
+    swap = {"x": "X", "X": "x", "y": "Y", "Y": "y"}
+    return "".join(swap[c] for c in reversed(w))
+
+
+def _rotate(w, k):
+    if not w:
+        return w
+    k %= len(w)
+    return w[k:] + w[:k]
+
+
+def _swap_gens(w):
+    swap = {"x": "y", "y": "x", "X": "Y", "Y": "X"}
+    return "".join(swap[c] for c in w)
+
+
+def _flip_x(w):
+    swap = {"x": "X", "X": "x", "y": "y", "Y": "Y"}
+    return "".join(swap[c] for c in w)
+
+
+def _mul_reduce(a, b):
+    return unparse_word(free_reduce(parse_word(a) + parse_word(b)))
+
+
+def _random_variant(r1, r2, rng):
+    if rng.random() < 0.5:
+        r1, r2 = r2, r1
+    if rng.random() < 0.5:
+        r1 = _invert(r1)
+    if rng.random() < 0.5:
+        r2 = _invert(r2)
+    r1 = _rotate(r1, rng.randrange(max(1, len(r1))))
+    r2 = _rotate(r2, rng.randrange(max(1, len(r2))))
+    if rng.random() < 0.4:
+        g = rng.choice("xXyY")
+        r1 = _mul_reduce(_mul_reduce(g, r1), {"x": "X", "X": "x",
+                                              "y": "Y", "Y": "y"}[g])
+    if rng.random() < 0.4:
+        # r1 -> r1 * r2^{+-1}: same normal closure, same group
+        r1 = _mul_reduce(r1, r2 if rng.random() < 0.5 else _invert(r2))
+        if not r1:
+            r1 = "x" if rng.random() < 0.5 else "y"
+    if rng.random() < 0.5:
+        r1, r2 = _swap_gens(r1), _swap_gens(r2)
+    if rng.random() < 0.5:
+        r1, r2 = _flip_x(r1), _flip_x(r2)
+    return r1, r2
+
+
+def stresstest(trials=400, variants=6, max_cosets=30000, seed=20260801,
+               verbose=True):
+    """Random differential test: invariance of the index under re-presentation."""
+    import random
+    rng = random.Random(seed)
+    letters = "xXyY"
+    mismatches = 0
+    verify_fail = 0
+    abel_fail = 0
+    completed = 0
+    for _ in range(trials):
+        r1 = "".join(rng.choice(letters) for _ in range(rng.randrange(1, 8)))
+        r2 = "".join(rng.choice(letters) for _ in range(rng.randrange(1, 8)))
+        if not free_reduce(parse_word(r1)) or not free_reduce(parse_word(r2)):
+            continue
+        seen = {}
+        for k in range(variants):
+            v1, v2 = (r1, r2) if k == 0 else _random_variant(r1, r2, rng)
+            res = _enumerate([v1, v2], max_cosets)
+            aok, atext = _abelian_check([v1, v2], res["status"], res["index"])
+            if not aok:
+                abel_fail += 1
+                if verbose:
+                    print("ABELIAN FAIL %s %s: %s" % (v1, v2, atext))
+            if res["status"] in (TRIVIAL, FINITE):
+                completed += 1
+                vok, vtext = verify_table(res)
+                if not vok:
+                    verify_fail += 1
+                    if verbose:
+                        print("VERIFY FAIL %s %s: %s" % (v1, v2, vtext))
+                seen.setdefault(res["index"], []).append((v1, v2))
+        if len(seen) > 1:
+            mismatches += 1
+            if verbose:
+                print("INDEX MISMATCH for <%s, %s>: %s" % (r1, r2, seen))
+    if verbose:
+        print("stress: %d presentations x %d variants, %d completed runs; "
+              "%d index mismatches, %d verify failures, %d abelian failures"
+              % (trials, variants, completed, mismatches, verify_fail,
+                 abel_fail))
+    return mismatches == 0 and verify_fail == 0 and abel_fail == 0
+
+
+# --------------------------------------------------------------------------
 # CLI
 
 
@@ -450,9 +610,12 @@ def main(argv):
     max_cosets = DEFAULT_MAX_COSETS
     i = 1
     do_selftest = False
+    do_stress = False
     while i < len(argv):
         a = argv[i]
-        if a == "--max-cosets":
+        if a == "--stresstest":
+            do_stress = True
+        elif a == "--max-cosets":
             i += 1
             max_cosets = int(argv[i].replace("_", ""))
         elif a.startswith("--max-cosets="):
@@ -465,6 +628,9 @@ def main(argv):
         else:
             args.append(a)
         i += 1
+
+    if do_stress:
+        return 0 if stresstest() else 1
 
     if do_selftest:
         return 0 if selftest(max_cosets=max_cosets) else 1
@@ -484,6 +650,10 @@ def main(argv):
     if res["status"] in (TRIVIAL, FINITE):
         ok, msg = verify_table(res)
         print("verification: %s (%s)" % ("PASS" if ok else "FAIL", msg))
+    if len(args) == 2:
+        aok, atext = _abelian_check(args, res["status"], res["index"])
+        print("abelianization check: %s (%s)"
+              % ("PASS" if aok else "FAIL", atext))
     print("peak cosets: %d" % res["peak_cosets"])
     print("coincidences: %d" % res["coincidences"])
     print("elapsed: %.3f s" % res["elapsed"])
