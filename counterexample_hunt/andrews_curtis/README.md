@@ -169,6 +169,17 @@ Results (`validation_len<N>.log`, `validation_results_len<N>.json`):
 | ≤ 12 | 1121 | 1120 | 1 | **0** |
 | ≤ 13 | 3480 | 3472 | 6 | **2 (= 1 AC-class: AK(3))** |
 | ≤ 14 | 7550 | 7522 | 9 | 19 (triaged below) |
+| ≤ 15 | 24571 | 24259 | 24 | 288 — **mostly a budget artifact, see below** |
+
+**The length-15 row does not mean 269 new candidates were found.** The sweep
+gives each class a fixed escalation (cap 14 / 3M states, then cap 17 / 20M),
+and that budget stops being adequate as presentations lengthen: the longest
+trivialization the engine actually completed grew 40 → 109 → 201 → **441
+moves** across lengths 12 → 13 → 14 → 15. So at length 15 "open" increasingly
+means "our search ran out", not "no trivialization exists". Treating the 288
+as candidates would badly overstate the result; the length-≤14 rows are the
+ones whose budget was comfortable enough to trust. AK(4) is among the open
+classes, as expected.
 
 The length-≤12 row is a clean independent replication of Miasnikov (*IJAC*
 1999): **every** presentation in range either AC-trivializes or is provably

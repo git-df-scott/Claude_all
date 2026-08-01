@@ -6,4 +6,4 @@ while read -r r1 r2; do
   printf "%-10s %-12s " "$r1" "$r2"
   ./ac_search "$r1" "$r2" --cap 24 --max-states 40000000 2>/dev/null \
     | grep -oE "TRIVIALIZATION FOUND — [0-9]+ moves|EXHAUSTED[^:]*|TRUNCATED[^:]*" | head -1
-done < targets_len14_remaining.txt
+done < "${1:-targets_len14_remaining.txt}"

@@ -1,3 +1,322 @@
 enumerating balanced presentations, total length <= 15 ...
 24571 distinct AC-classes with trivial abelianization
 AK(3) present in enumeration as xyxYXY xxxxYYY
+
+TRIVIALIZED: 24259   UNRESOLVED by search: 312
+of the unresolved: 24 proven NONTRIVIAL groups, 288 OPEN
+  nontrivial: xxyXy          xyyyyxY        via S_5, x->(0, 1, 3, 4, 2), y->(2, 3, 1, 4, 0)
+  nontrivial: xxyXy          xxxyyyyy       via S_5, x->(0, 1, 3, 4, 2), y->(2, 3, 1, 4, 0)
+  nontrivial: xxyXy          xyXYYYXy       via S_5, x->(0, 1, 3, 4, 2), y->(2, 3, 1, 4, 0)
+  nontrivial: xyxyxY         xxxxxyy        via S_5, x->(1, 2, 3, 4, 0), y->(0, 2, 1, 4, 3)
+  nontrivial: xyxYXY         xxxYXXY        via S_5, x->(1, 2, 3, 4, 0), y->(2, 0, 4, 1, 3)
+  nontrivial: xyxYXY         xxYXyXY        via S_5, x->(1, 2, 3, 4, 0), y->(2, 0, 4, 1, 3)
+  nontrivial: xxxyXXy        xxyXYXy        via S_5, x->(1, 2, 3, 4, 0), y->(1, 3, 0, 4, 2)
+  nontrivial: xxyXy          xyxyXYYXy      via S_5, x->(0, 1, 3, 4, 2), y->(2, 3, 1, 4, 0)
+  nontrivial: xxyXYXy        xyXYYXy        via S_5, x->(1, 2, 3, 4, 0), y->(1, 3, 0, 4, 2)
+  nontrivial: xxxxxyy        xyyyxYxY       via S_5, x->(1, 2, 3, 4, 0), y->(0, 2, 1, 4, 3)
+  nontrivial: xxxxyXy        xxxxxyyy       via S_5, x->(1, 2, 3, 4, 0), y->(0, 2, 4, 3, 1)
+  nontrivial: xxxxyXy        xxxyXYXy       via S_5, x->(1, 2, 3, 4, 0), y->(0, 2, 4, 3, 1)
+  nontrivial: xxxyy          xyxyxyxyxY     via S_5, x->(0, 1, 3, 4, 2), y->(2, 3, 0, 1, 4)
+  nontrivial: xxyxYxy        xxxxyyXY       via S_5, x->(1, 2, 3, 4, 0), y->(0, 4, 1, 3, 2)
+  nontrivial: xxyXy          xxyXXyXYYY     via S_5, x->(0, 1, 3, 4, 2), y->(2, 3, 1, 4, 0)
+  nontrivial: xxyXy          xxyXYXyXYY     via S_5, x->(0, 1, 3, 4, 2), y->(2, 3, 1, 4, 0)
+  nontrivial: xxyXy          xxyXYYXyXY     via S_5, x->(0, 1, 3, 4, 2), y->(2, 3, 1, 4, 0)
+  nontrivial: xxyXy          xyxyxyXYXy     via S_5, x->(0, 1, 3, 4, 2), y->(2, 3, 1, 4, 0)
+  nontrivial: xxyXy          xyXyyXYYYY     via S_5, x->(0, 1, 3, 4, 2), y->(2, 3, 1, 4, 0)
+  nontrivial: xxyXYXy        xyXyyyXy       via S_5, x->(1, 2, 3, 4, 0), y->(1, 3, 0, 4, 2)
+  nontrivial: xyxyxY         xxxxyXyXY      via S_5, x->(1, 2, 3, 4, 0), y->(0, 2, 1, 4, 3)
+  nontrivial: xyxyxY         xxxxyXYXy      via S_5, x->(1, 2, 3, 4, 0), y->(0, 2, 1, 4, 3)
+  nontrivial: xyxYXY         xxxxYXYXY      via S_5, x->(1, 2, 3, 4, 0), y->(2, 0, 4, 1, 3)
+  nontrivial: xyxYXY         xxxxYYXYY      via S_5, x->(1, 2, 3, 4, 0), y->(2, 0, 4, 1, 3)
+
+OPEN cases (should be AK(3) and nontrivial groups without small quotients):
+  xxyXYY         xxxYYXy        total=13
+  xyxYXY         xxxxYYY        total=13  <-- AK(3)
+  xxxxyXy        xyyyxYY        total=14
+  xxxxyyy        xyxyyxY        total=14
+  xxxyXXy        xyyXYYY        total=14
+  xxxyXXY        xyyXYYY        total=14
+  xxxyXyy        xyxyyXY        total=14
+  xxxyXYY        xyyXYxY        total=14
+  xxyxxYY        xyXYYXy        total=14
+  xxyxyXY        xxYYXyy        total=14
+  xxyxYXY        xyXyxYY        total=14
+  xxyxYXY        xyXyXYY        total=14
+  xxyXXYY        xyxYYXy        total=14
+  xxyXy          xyyyXYYYY      total=14
+  xxyXy          xyyyyyxYY      total=14
+  xxyXy          xyyyyyyxY      total=14
+  xxyXyXY        xyxyXYY        total=14
+  xxyXyXY        xyXYYXy        total=14
+  xxyXYXy        xyXyxYY        total=14
+  xxxxyxy        xyyyxYxY       total=15
+  xxxxyXy        xxyyyXYY       total=15
+  xxxxyXy        xyxyyXYY       total=15
+  xxxxyXy        xyXYYxyy       total=15
+  xxxxyXy        xyXYYYXy       total=15
+  xxxxyyy        xxxyXyXY       total=15
+  xxxxyyy        xxxyXYXy       total=15
+  xxxxyyy        xyXYYxyy       total=15
+  xxxyxyy        xyXyXYYY       total=15
+  xxxyxyy        xyyXyxYY       total=15
+  xxxyxyy        xyyyXYxY       total=15
+  xxxyxYY        xxxYxYxy       total=15
+  xxxyxYY        xxxYxYXy       total=15
+  xxxyxYY        xxxYXYxy       total=15
+  xxxyxYY        xxYxxYxy       total=15
+  xxxyxYY        xxYYYxyy       total=15
+  xxxyXXy        xyxyyXYY       total=15
+  xxxyXXy        xyxyyyXY       total=15
+  xxxyXXy        xyXyXYYY       total=15
+  xxxyXXy        xyXyyxYY       total=15
+  xxxyXXy        xyXyyyxY       total=15
+  xxxyXXy        xyXYYxyy       total=15
+  xxxyXXy        xyXYYXYY       total=15
+  xxxyXXy        xyXYYYXy       total=15
+  xxxyXXy        xyyXyyxY       total=15
+  xxxyXXY        xxyyxYYY       total=15
+  xxxyXXY        xxyyXYYY       total=15
+  xxxyXXY        xyxyxYYY       total=15
+  xxxyXXY        xyxyXYYY       total=15
+  xxxyXXY        xyxyyxYY       total=15
+  xxxyXXY        xyxyyXYY       total=15
+  xxxyXXY        xyxYYxyy       total=15
+  xxxyXXY        xyxYYXyy       total=15
+  xxxyXXY        xyxYYYXy       total=15
+  xxxyXXY        xyXyxYYY       total=15
+  xxxyXXY        xyXyyxYY       total=15
+  xxxyXXY        xyXyyXYY       total=15
+  xxxyXXY        xyXYYxyy       total=15
+  xxxyXXY        xyXYYXyy       total=15
+  xxxyXyy        xxYxyXXy       total=15
+  xxxyXyy        xyXYYYXy       total=15
+  xxxyXyy        xyyxYYXy       total=15
+  xxxyXyy        xyyXyxYY       total=15
+  xxxyXyy        xyyyXYxY       total=15
+  xxxyXYY        xxxxYYXy       total=15
+  xxxyXYY        xxxYxYXy       total=15
+  xxxyXYY        xxxYXyXY       total=15
+  xxxyXYY        xxxYXYxy       total=15
+  xxxyXYY        xxxYXYXy       total=15
+  xxxyXYY        xxxYYXXy       total=15
+  xxxyXYY        xxYxxYXy       total=15
+  xxxyXYY        xxYxyXXY       total=15
+  xxxyXYY        xyxyxYYY       total=15
+  xxxyXYY        xyxYYYXy       total=15
+  xxxyXYY        xyXyxYYY       total=15
+  xxxyXYY        xyyXYxYY       total=15
+  xxyxxYY        xyxyxYYY       total=15
+  xxyxyxY        xxxxYXyy       total=15
+  xxyxyxY        xxxYxyXy       total=15
+  xxyxyxY        xxYYxyyy       total=15
+  xxyxyXy        xxxyyyyy       total=15
+  xxyxyXy        xxYYXyyy       total=15
+  xxyxyXy        xyxYYXyy       total=15
+  xxyxyXy        xyXyXYYY       total=15
+  xxyxyXy        xyXYYYXy       total=15
+  xxyxyXy        xyyxYYXy       total=15
+  xxyxyXY        xxxxxyyy       total=15
+  xxyxyXY        xxxxYXyy       total=15
+  xxyxyXY        xxxYXyxy       total=15
+  xxyxyXY        xxxYXyXy       total=15
+  xxyxyXY        xxYYxyyy       total=15
+  xxyxyXY        xxYYXyyy       total=15
+  xxyxyXY        xyxYYXyy       total=15
+  xxyxyXY        xyXyXYYY       total=15
+  xxyxyXY        xyyyxYxY       total=15
+  xxyxYXY        xxxxxYYY       total=15
+  xxyxYXY        xxxxYYxY       total=15
+  xxyxYXY        xxxxYYXy       total=15
+  xxyxYXY        xxxYXyXY       total=15
+  xxyxYXY        xxyyxYYY       total=15
+  xxyxYXY        xxyyXYYY       total=15
+  xxyxYXY        xxYxyXXY       total=15
+  xxyxYXY        xxYYYxyy       total=15
+  xxyxYXY        xxYYYXyy       total=15
+  xxyxYXY        xyxyxYYY       total=15
+  xxyxYXY        xyXyxYYY       total=15
+  xxyxYXY        xyXyyXYY       total=15
+  xxyxYXY        xyyxYxYY       total=15
+  xxyxYXY        xyyxYYxY       total=15
+  xxyxYXY        xyyXyXYY       total=15
+  xxyxYXY        xyyXYxYY       total=15
+  xxyxYY         xxxxxxYXY      total=15
+  xxyxYY         xxxxYxYXy      total=15
+  xxyxYY         xxxxYXyXY      total=15
+  xxyxYY         xxxxYXYXy      total=15
+  xxyxYY         xxxxYYYxy      total=15
+  xxyxYY         xxxYxyXXY      total=15
+  xxyxYY         xxxYXXYxy      total=15
+  xxyxYY         xxxYXyxxY      total=15
+  xxyxYY         xxxYYYXyy      total=15
+  xxyxYY         xxyXXYYxy      total=15
+  xxyxYY         xxyXYxYXy      total=15
+  xxyxYY         xxYXyXyxY      total=15
+  xxyxYY         xxYXyXyXY      total=15
+  xxyxYY         xxYXYxyXy      total=15
+  xxyxYY         xxYXYXyXy      total=15
+  xxyxYY         xxYXYYxyy      total=15
+  xxyxYY         xxYYYxyXy      total=15
+  xxyxYY         xyXYYXyXy      total=15
+  xxyxYY         xyyxYxYxY      total=15
+  xxyXXYY        xyxyXYYY       total=15
+  xxyXXYY        xyxyyyXy       total=15
+  xxyXXYY        xyxyyyXY       total=15
+  xxyXXYY        xyxYXyyy       total=15
+  xxyXXYY        xyxYYYXy       total=15
+  xxyXXYY        xyxYYYXY       total=15
+  xxyXXYY        xyXyxYYY       total=15
+  xxyXXYY        xyyxyyXY       total=15
+  xxyXXYY        xyyxYYXy       total=15
+  xxyXXYY        xyyxYYXY       total=15
+  xxyXy          xxxyyyyyyy     total=15
+  xxyXy          xxyyyyXYYY     total=15
+  xxyXy          xxyyyyyXYY     total=15
+  xxyXy          xxyyyyyyxY     total=15
+  xxyXy          xyxyxyyyyy     total=15
+  xxyXy          xyxyyyyyxY     total=15
+  xxyXy          xyXYYxyyyy     total=15
+  xxyXy          xyXYYYxyyy     total=15
+  xxyXy          xyXYYYYXyy     total=15
+  xxyXy          xyXYYYYYXy     total=15
+  xxyXy          xyyxyyyyxY     total=15
+  xxyXy          xyyyxyyyxY     total=15
+  xxyXyXY        xxxyXXYY       total=15
+  xxyXyXY        xxxyXYXy       total=15
+  xxyXyXY        xxxYXyXy       total=15
+  xxyXyXY        xxxYXYXy       total=15
+  xxyXyXY        xxyXXYxy       total=15
+  xxyXyXY        xxyXXYXy       total=15
+  xxyXyXY        xxyyyXyy       total=15
+  xxyXyXY        xxyyyyXy       total=15
+  xxyXyXY        xxYXYYYY       total=15
+  xxyXyXY        xxYYXyyy       total=15
+  xxyXyXY        xxYYXYYY       total=15
+  xxyXyXY        xxYYYXyy       total=15
+  xxyXyXY        xxYYYXYY       total=15
+  xxyXyXY        xxYYYYXy       total=15
+  xxyXyXY        xyxyXYYY       total=15
+  xxyXyXY        xyxyyXyy       total=15
+  xxyXyXY        xyxyyXYY       total=15
+  xxyXyXY        xyxyyyXy       total=15
+  xxyXyXY        xyxYXyyy       total=15
+  xxyXyXY        xyxYXYYY       total=15
+  xxyXyXY        xyxYYXyy       total=15
+  xxyXyXY        xyxYYXYY       total=15
+  xxyXyXY        xyxYYYXy       total=15
+  xxyXyXY        xyXyxYYY       total=15
+  xxyXyXY        xyXyyxYY       total=15
+  xxyXyXY        xyXyyXYY       total=15
+  xxyXyXY        xyXYYxyy       total=15
+  xxyXyXY        xyXYYXyy       total=15
+  xxyXyXY        xyXYYXYY       total=15
+  xxyXyXY        xyXYYYXy       total=15
+  xxyXyXY        xyyxYYXy       total=15
+  xxyXyXY        xyyxYYXY       total=15
+  xxyXyXY        xyyXYxYY       total=15
+  xxyXyXY        xyyXYYxY       total=15
+  xxyXyXY        xyyyXYxY       total=15
+  xxyXYXy        xxxyXXyy       total=15
+  xxyXYXy        xxxyXyXy       total=15
+  xxyXYXy        xxxyXyXY       total=15
+  xxyXYXy        xxxYXyXY       total=15
+  xxyXYXy        xxxYXYXY       total=15
+  xxyXYXy        xxyXXyxY       total=15
+  xxyXYXy        xxyXXyXY       total=15
+  xxyXYXy        xxyyyXYY       total=15
+  xxyXYXy        xxYYXYYY       total=15
+  xxyXYXy        xyxyyXyy       total=15
+  xxyXYXy        xyXyxYYY       total=15
+  xxyXYXy        xyXyXyyy       total=15
+  xxyXYXy        xyXyXYYY       total=15
+  xxyXYXy        xyXyyxYY       total=15
+  xxyXYXy        xyXyyXYY       total=15
+  xxyXYXy        xyXyyyxY       total=15
+  xxyXYXy        xyXYYxyy       total=15
+  xxyXYXy        xyXYYXyy       total=15
+  xxyXYXy        xyXYYYXy       total=15
+  xxyXYXy        xyyXyXyy       total=15
+  xxyXYXy        xyyXyXYY       total=15
+  xxyXYXy        xyyXyyxY       total=15
+  xxyXYY         xxxxxYYXY      total=15
+  xxyXYY         xxxxYxYXY      total=15
+  xxyXYY         xxxxYXXXy      total=15
+  xxyXYY         xxxxYXyXY      total=15
+  xxyXYY         xxxxYXYxY      total=15
+  xxyXYY         xxxxYXYXy      total=15
+  xxyXYY         xxxxYXYXY      total=15
+  xxyXYY         xxxxYYYxY      total=15
+  xxyXYY         xxxxYYYXy      total=15
+  xxyXYY         xxxxYYYXY      total=15
+  xxyXYY         xxxyXyXXY      total=15
+  xxyXYY         xxxyyXXXY      total=15
+  xxyXYY         xxxYxyXXY      total=15
+  xxyXYY         xxxYxYYXy      total=15
+  xxyXYY         xxxYxYYXY      total=15
+  xxyXYY         xxxYXXYXy      total=15
+  xxyXYY         xxxYXyXXy      total=15
+  xxyXYY         xxxYXyXXY      total=15
+  xxyXYY         xxxYXyyXY      total=15
+  xxyXYY         xxxYXYYxy      total=15
+  xxyXYY         xxxYXYYXy      total=15
+  xxyXYY         xxxYYxyXY      total=15
+  xxyXYY         xxxYYxYxY      total=15
+  xxyXYY         xxxYYxYXy      total=15
+  xxyXYY         xxxYYxYXY      total=15
+  xxyXYY         xxxYYXyxY      total=15
+  xxyXYY         xxxYYXyXy      total=15
+  xxyXYY         xxxYYXyXY      total=15
+  xxyXYY         xxxYYXYxy      total=15
+  xxyXYY         xxxYYXYxY      total=15
+  xxyXYY         xxxYYXYXy      total=15
+  xxyXYY         xxyxxYYXY      total=15
+  xxyXYY         xxYxxYYXy      total=15
+  xxyXYY         xxYxxYYXY      total=15
+  xxyXYY         xxYxyXyXY      total=15
+  xxyXYY         xxYxyyXXY      total=15
+  xxyXYY         xxYxYxYXy      total=15
+  xxyXYY         xxYxYXyxY      total=15
+  xxyXYY         xxYxYXyXy      total=15
+  xxyXYY         xxYxYXyXY      total=15
+  xxyXYY         xxYxYXYxy      total=15
+  xxyXYY         xxYxYXYxY      total=15
+  xxyXYY         xxYxYXYXy      total=15
+  xxyXYY         xxYXyxxYY      total=15
+  xxyXYY         xxYXyXyxY      total=15
+  xxyXYY         xxYXyXyXy      total=15
+  xxyXYY         xxYXyXyXY      total=15
+  xxyXYY         xxYXyyXXy      total=15
+  xxyXYY         xxYXyyXXY      total=15
+  xxyXYY         xxYXYxyxY      total=15
+  xxyXYY         xxYXYXyxy      total=15
+  xxyXYY         xxYXYXyxY      total=15
+  xxyXYY         xxYXYXyXy      total=15
+  xxyXYY         xxYXYXYxy      total=15
+  xyxyxY         xxxxxxxyy      total=15
+  xyxyxY         xxxxxxyXy      total=15
+  xyxyxY         xxxxyXXXY      total=15
+  xyxYXY         xxxxxYXXY      total=15
+  xyxYXY         xxxxxYYYY      total=15
+  xyxYXY         xxxxyXXXY      total=15
+  xyxYXY         xxxxYxYYY      total=15
+  xyxYXY         xxxxYXXXY      total=15
+  xyxYXY         xxxxYXXYY      total=15
+  xyxYXY         xxxxYXyXY      total=15
+  xyxYXY         xxxxYYxYY      total=15
+  xyxYXY         xxxyXXyXY      total=15
+  xyxYXY         xxxYxxYYY      total=15
+  xyxYXY         xxxYxyXXY      total=15
+  xyxYXY         xxxYxYXXY      total=15
+  xyxYXY         xxxYxYYxY      total=15
+  xyxYXY         xxxYXXyXY      total=15
+  xyxYXY         xxxYXyxYY      total=15
+  xyxYXY         xxxYXyXYY      total=15
+  xyxYXY         xxxYXyyXY      total=15
+  xyxYXY         xxyXXyxYY      total=15
+  xyxYXY         xxyXXyXXy      total=15
+  xyxYXY         xxyXXyyXY      total=15
+  xyxYXY         xxYxyXyXY      total=15
+  xyxYXY         xxYxYXyXY      total=15
+  xyxYXY         xxYXyXyXY      total=15
+
+longest trivialization found: 441 moves
