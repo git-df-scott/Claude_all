@@ -136,6 +136,40 @@ has survived while being widely disbelieved.
     from-scratch re-derivation of Havas–Ramsay (*IJAC* 2003). Neither has a
     nontrivial quotient in any Sₙ, n ≤ 6, consistent with presenting the
     trivial group. Longest trivialization the engine needed: 109 moves.
+- **Pushing to the length-14 frontier — a vetted candidate shortlist.**
+  Extending the enumeration to total length ≤ 14 gives 7,550 AC-classes:
+  7,522 trivialize, 9 are proven nontrivial, and 19 remain open. Triaging
+  those 19 is where the interesting work is:
+  - **6 are AK(3) in disguise.** Rather than one search per candidate (whose
+    negatives would be inconclusive, since AK(3)'s component alone is ~10⁸
+    states), the engine enumerates AK(3)'s cap-12 component *once* and tests
+    all candidates against it. That run exhausts at exactly 99,344,336
+    states — reproducing the independent AK(3)-only run to the digit — so
+    absences are rigorous.
+  - **12 are provably not reachable from AK(3) within cap 12**, and
+    Todd–Coxeter coset enumeration proves **11 of them present the trivial
+    group** (index 1; the 12th is inconclusive at a 2×10⁶ coset budget).
+    That upgrades them from "unresolved" to genuine AC test cases: a class
+    that neither trivializes nor has a small quotient could easily have been
+    a *nontrivial* group, which would put it outside the conjecture entirely.
+  - Repeating the component test at cap 13 truncates at 170M states and finds
+    none of the 12 — an honest null: inconclusive, not evidence either way.
+
+  These 11 are **candidates, not counterexamples**. A deeper search may still
+  trivialize them, or they may join AK(3)'s class through longer intermediates.
+  Producing a vetted shortlist of minimal candidates — each *proven* to
+  present the trivial group — is what a counterexample hunt at this frontier
+  can honestly deliver.
+
+- **Independent agreement with the literature.** J. Carreras,
+  "Machine-checkable equivalence certificates at the length-14 Andrews–Curtis
+  frontier" (arXiv:2607.23611), states that unconditional verification stands
+  at total length 12, and that at length 13 every presentation is
+  AC-trivializable or AC-equivalent to AK(3). The sweep here re-derives both
+  from scratch. Two of our tools also cross-check each other: the permutation
+  search finds an S₅ quotient for ⟨x,y | x²yx⁻¹y, xy⁴xy⁻¹⟩, and coset
+  enumeration independently returns order exactly 120.
+
 - Context from the literature (verified via search this session): the
   reinforcement-learning attack of Shehper et al. (arXiv:2408.15332, NeurIPS
   2025) resolved many Miller–Schupp potential counterexamples and
