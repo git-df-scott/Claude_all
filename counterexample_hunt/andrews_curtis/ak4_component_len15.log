@@ -1,0 +1,4 @@
+loaded 202 targets
+input: r1=xyxYXY r2=xxxxxYYYY  cap=13  max-states=150000000  abelianization det=1 (trivial H1, ok)
+TARGET IN COMPONENT: xyxYXY xxxxxYYYY (start state)
+TARGET IN COMPONENT: xxyXyXY xyXYYYXy (stored=2175835)
