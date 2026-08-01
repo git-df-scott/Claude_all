@@ -50,7 +50,7 @@ the whole 730k→4M sweep: ~1–5%. That is the honest number.
 | 2,000,000–2,500,000 | concentrated | 7,222 | 0 |
 | 2,500,000–3,200,000 | concentrated | 12,443 | 0 |
 | 3,200,000–4,000,000 | concentrated | 18,003 | 0 |
-| 4,000,000–4,300,000 | concentrated | RUNNING at last update — see §4 |
+| 4,000,000–4,300,000 | concentrated | 8,050 | 0 |
 
 ## 3. The code (all in euler6/, all committed)
 
@@ -91,7 +91,7 @@ the whole 730k→4M sweep: ~1–5%. That is the honest number.
 
 ## 5. The user's PC campaign (agreed division of labor)
 
-Cloud sessions own **730k → 4.3M** (4.0–4.3M running at 12 bpp). The user's PC owns **4.3M upward** (starting at 4M is harmless overlap) (more cores
+Cloud territory **730k → 4.3M is COMPLETE** (55,684 candidates, 0 solutions). The user's PC owns **4.3M upward** (starting at 4M is harmless overlap) (more cores
 + RAM). Recipe already given to the user: clone branch, build, sanity-check,
 then `./caseA2 4000000 5000000` etc. Coordinate by claiming ranges in the PR.
 If the user asks, build these two upgrades (a few hours work, high value for
