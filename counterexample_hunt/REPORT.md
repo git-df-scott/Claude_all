@@ -278,6 +278,22 @@ total length ≤ 13 and resolving every one of them by proof re-derives both
 Miasnikov's and Havas–Ramsay's theorems, landing on AK(3) as the unique open
 class exactly where the literature says it should be.
 
+**Would a more capable searcher change this?** No, and it is worth being
+precise about why, because the answer differs by problem. For P≠NP, Twin
+Primes and abc, the target is not a finite object at all — a disproof is a
+theorem, so no search, at any capability, terminates with a witness. For
+Collatz and Goldbach the constraint is arithmetic and searcher-independent:
+§2.2 proves a counterexample cycle needs ≥ 6.5×10¹⁰ elements each above 2⁷¹,
+and Goldbach is exhaustively verified to 4×10¹⁸; a faster search closes
+essentially none of that gap. For BSD the wall is that no algorithm, however
+slow, certifies the vanishing of an L-derivative. Andrews–Curtis is the only
+one where a stronger reasoner could matter, and there the missing piece is an
+AC-invariant surviving the Borovik–Lubotzky–Myasnikov finite-quotient no-go —
+that is an original mathematical discovery, not a deeper search. The
+distinction throughout is between *searching harder*, which is what more
+compute or a better model buys, and *changing what counts as a certificate*,
+which is what every one of these problems actually requires.
+
 What genuine disproof programs look like, per problem: an AC-invariant
 surviving the Borovik–Lubotzky–Myasnikov finite-quotient no-go
 (Andrews–Curtis); a computer-assisted self-similar blowup proof for
