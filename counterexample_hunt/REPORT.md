@@ -271,10 +271,12 @@ false (Andrews–Curtis, Navier–Stokes) both have counterexamples that are
 *proof-shaped*, not witness-shaped, and the three witness-shaped problems
 (Collatz, Goldbach, BSD) have overwhelming quantitative evidence that no
 witness exists within any reachable horizon — evidence this work sharpened
-rather than merely cited. Concretely: the Collatz bound of §2.2 is, to our
-knowledge, the strongest statement in this repo proved *from scratch* here;
-the Andrews–Curtis engine of §2.1 independently reproduces the exact known
-frontier of the field's central open candidate.
+rather than merely cited. Concretely, two results here were proved *from
+scratch* rather than quoted: the Collatz cycle bound of §2.2, and the
+Andrews–Curtis frontier of §2.1 — where enumerating all 3,480 AC-classes of
+total length ≤ 13 and resolving every one of them by proof re-derives both
+Miasnikov's and Havas–Ramsay's theorems, landing on AK(3) as the unique open
+class exactly where the literature says it should be.
 
 What genuine disproof programs look like, per problem: an AC-invariant
 surviving the Borovik–Lubotzky–Myasnikov finite-quotient no-go
