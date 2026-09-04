@@ -1,5 +1,21 @@
 # Hunting a sixth-power counterexample to Euler's sum of powers conjecture
 
+> ## ⚠️ This is an archival snapshot — the project moved
+>
+> **Canonical repository: https://github.com/git-df-scott/ESOP6**
+>
+> Work continues there, and this copy is frozen. It is missing:
+> - `caseA3.c`, the bucketed low-memory sweep (removes the RAM wall entirely —
+>   f = 10M runs in under 3 GB instead of 42 GB)
+> - a fix for a Bloom filter sizing bug in `caseA2.c` here, which rounds the
+>   filter to a power of two and so can allocate up to 2× the requested
+>   bits-per-pair (17.2 GB for a 10.6 GB request at fmax = 5e6)
+>
+> **The cleared frontier is f = 4,300,000.** If a snapshot of this directory
+> ever shows a chunk as "running", it is stale — see ESOP6 for the
+> authoritative results table.
+
+
 Target equation ((6,1,5) in Lander–Parkin–Selfridge notation):
 
 ```
